@@ -6,7 +6,7 @@
   <title>ПОТІК · особистий</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700;800&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
       color-scheme: dark;
@@ -15,11 +15,16 @@
       --surface-1: #0d0d0d;
       --surface-2: #121212;
       --surface-3: #181818;
+      --media-well: #111;
       --line: #292929;
+      --line-mid: #3a3a3a;
       --line-strong: #484848;
+      --line-beige: #6c5a43;
       --text: #fff;
+      --text-warm: #f3eee7;
       --text-muted: #b8b2a9;
       --text-dim: #817b73;
+      --on-accent: #000;
       --orange: #f6921e;
       --orange-hover: #e16709;
       --beige: #d6b588;
@@ -29,47 +34,97 @@
       --danger-text: #ffb4a7;
       --success: #90ad65;
       --signal-green: #111a0b;
-      --cut: 12px;
-      --cut-sm: 7px;
+      --orange-a14: color-mix(in srgb, var(--orange) 14%, transparent);
+      --orange-a22: color-mix(in srgb, var(--orange) 22%, transparent);
+      --orange-a45: color-mix(in srgb, var(--orange) 45%, transparent);
+      --orange-glow: color-mix(in srgb, var(--orange) 4.5%, transparent);
+      --beige-wash: color-mix(in srgb, var(--beige) 2.5%, transparent);
+      --scrim: color-mix(in srgb, var(--bg) 72%, transparent);
+      --scrim-strong: color-mix(in srgb, var(--bg) 82%, transparent);
+      --map-field: #3d5c34;
+      --map-plot: #6b8f4e;
+      --map-plot-alt: #8a7344;
       --display: "Oswald", "Arial Narrow", sans-serif;
       --body: "Mulish", system-ui, sans-serif;
       --mono: ui-monospace, "SFMono-Regular", Consolas, monospace;
+      --type-kicker: 9px;
+      --type-label: 10px;
+      --type-meta: 11px;
+      --type-control: 12px;
+      --type-ui: 13px;
+      --type-body: 14px;
+      --type-copy: 15px;
+      --type-callsign: 16px;
+      --type-input: 18px;
+      --type-title: 20px;
+      --type-brand: 22px;
+      --track-input: .01em;
+      --track-tight: .02em;
+      --track-label: .04em;
+      --track-display: .06em;
+      --track-wide: .08em;
+      --track-tab: .12em;
+      --track-kicker: .15em;
+      --track-slogan: .28em;
+      --leading-body: 1.45;
+      --leading-copy: 1.5;
+      --space-1: 4px;
+      --space-tight: 6px;
+      --space-2: 8px;
+      --space-10: 10px;
+      --space-3: 12px;
+      --space-14: 14px;
+      --space-4: 16px;
+      --space-pane: 18px;
+      --space-22: 22px;
+      --space-6: 24px;
+      --space-7: 48px;
+      --cut: 12px;
+      --cut-sm: 7px;
       --shape: polygon(var(--cut) 0, 100% 0, 100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%, 0 100%, 0 var(--cut));
       --shape-sm: polygon(var(--cut-sm) 0, 100% 0, 100% calc(100% - var(--cut-sm)), calc(100% - var(--cut-sm)) 100%, 0 100%, 0 var(--cut-sm));
+      --shadow-panel: 0 18px 44px color-mix(in srgb, var(--bg) 48%, transparent);
+      --ease-out: cubic-bezier(.2, .75, .25, 1);
+      --duration-fast: 160ms;
+      --duration-enter: 520ms;
+      --stroke: 2px;
+      --size-mark: 22px;
+      --size-control: 36px;
+      --size-header: 64px;
     }
     * { box-sizing: border-box; }
     html, body { height: 100%; margin: 0; }
     body {
       background:
-        linear-gradient(135deg, transparent 0 48%, rgba(214,181,136,.025) 49% 51%, transparent 52%) 0 0 / 96px 96px,
-        radial-gradient(circle at 78% 14%, rgba(246,146,30,.045), transparent 30%),
+        linear-gradient(135deg, transparent 0 48%, var(--beige-wash) 49% 51%, transparent 52%) 0 0 / 96px 96px,
+        radial-gradient(circle at 78% 14%, var(--orange-glow), transparent 30%),
         var(--bg);
       color: var(--text);
-      font: 14px/1.45 var(--body);
+      font: var(--type-body)/var(--leading-body) var(--body);
       -webkit-font-smoothing: antialiased;
     }
     button, input { font: inherit; color: inherit; }
     button { cursor: pointer; }
     * {
       scrollbar-width: thin;
-      scrollbar-color: var(--line-strong) #080808;
+      scrollbar-color: var(--line-strong) var(--surface-0);
     }
     *::-webkit-scrollbar { width: 8px; height: 8px; }
-    *::-webkit-scrollbar-track { background: #080808; }
+    *::-webkit-scrollbar-track { background: var(--surface-0); }
     *::-webkit-scrollbar-thumb {
       background: var(--line-strong);
-      border: 2px solid #080808;
+      border: 2px solid var(--surface-0);
     }
     *::-webkit-scrollbar-thumb:hover { background: var(--orange); }
-    *::-webkit-scrollbar-corner { background: #080808; }
+    *::-webkit-scrollbar-corner { background: var(--surface-0); }
     h1, h2, p { margin: 0; }
-    :focus-visible { outline: 2px solid var(--orange); outline-offset: 2px; }
+    :focus-visible { outline: var(--stroke) solid var(--orange); outline-offset: var(--stroke); }
 
     .gate {
       display: grid;
       min-height: 100%;
       place-items: center;
-      padding: 24px;
+      padding: var(--space-6);
     }
     .cut {
       --cut-size: var(--cut);
@@ -105,77 +160,106 @@
       bottom: calc(var(--cut-size) / 2 - .5px);
       transform: translateX(50%) rotate(-45deg);
     }
+    .gate-stack {
+      display: grid;
+      gap: var(--space-22);
+      width: min(760px, 100%);
+      justify-items: center;
+    }
+    .gate-slogan {
+      display: grid;
+      width: 100%;
+      margin: 0;
+      color: var(--beige);
+      font: 600 var(--type-input)/1 var(--display);
+      letter-spacing: var(--track-wide);
+      text-transform: uppercase;
+    }
+    .gate-slogan-main,
+    .gate-slogan-sub {
+      display: block;
+      text-align: center;
+    }
+    .gate-slogan-sub {
+      display: block;
+      margin-top: var(--space-7);
+      color: var(--orange);
+      font: 600 var(--type-ui)/1 var(--display);
+      letter-spacing: var(--track-slogan);
+      text-align: center;
+    }
     .gate-card {
       width: min(420px, 100%);
       border: 1px solid var(--line-strong);
       clip-path: var(--shape);
-      box-shadow: 0 18px 44px rgba(0,0,0,.48);
+      box-shadow: var(--shadow-panel);
     }
     .gate-card header, .desk-top, .pane header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
-      min-height: 64px;
-      padding: 14px 18px;
+      gap: var(--space-3);
+      min-height: var(--size-header);
+      padding: var(--space-14) var(--space-pane);
       border-bottom: 1px solid var(--line);
-      background: #000;
+      background: var(--bg);
     }
     .mark {
       display: block;
-      width: 22px;
-      height: 22px;
-      flex: 0 0 22px;
+      color: var(--orange);
+      width: var(--size-mark);
+      height: var(--size-mark);
+      flex: 0 0 var(--size-mark);
     }
-    .brand { display: flex; align-items: center; gap: 10px; }
+    .brand { display: flex; align-items: center; gap: var(--space-10); }
     .brand h1 { display: flex; align-items: center; height: 22px; margin: 0; line-height: 22px; }
     .callsign {
-      margin: 0 4px 0 12px;
+      margin: 0 var(--space-1) 0 var(--space-3);
       color: var(--beige);
-      font: 600 16px/1 var(--display);
-      letter-spacing: .06em;
+      font: 600 var(--type-callsign)/1 var(--display);
+      letter-spacing: var(--track-display);
       text-transform: uppercase;
     }
     .brand h1, .pane h2 {
       font-family: var(--display);
       font-weight: 600;
-      letter-spacing: .04em;
+      letter-spacing: var(--track-label);
       text-transform: uppercase;
     }
-    .brand h1 { font-size: 22px; }
+    .brand h1 { font-size: var(--type-brand); }
     .eyebrow {
       color: var(--beige);
-      font: 700 9px/1.2 var(--mono);
-      letter-spacing: .15em;
+      font: 700 var(--type-kicker)/1.2 var(--mono);
+      letter-spacing: var(--track-kicker);
       text-transform: uppercase;
     }
-    .gate-body, .pane-body { padding: 18px; }
-    .gate-body p { color: var(--text-muted); font-size: 13px; }
-    label { display: grid; gap: 6px; margin-top: 16px; }
-    label span { font-size: 10px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
-    input[type="password"], input[type="text"], input[type="search"], select {
+    .gate-body, .pane-body { padding: var(--space-pane); }
+    .gate-body p { color: var(--text-muted); font-size: var(--type-ui); }
+    label { display: grid; gap: var(--space-tight); margin-top: var(--space-4); }
+    label span { font-size: var(--type-label); font-weight: 700; letter-spacing: var(--track-label); text-transform: uppercase; }
+    input[type="password"], input[type="text"], input[type="search"], textarea, select {
       appearance: none;
       -webkit-appearance: none;
-      height: 36px;
+      height: var(--size-control);
       width: 100%;
-      --cut-size: 7px;
+      --cut-size: var(--cut-sm);
       --cut-border-color: var(--line-strong);
       border: 1px solid var(--cut-border-color);
       border-top-width: 1px;
       border-radius: 0;
-      background-color: #080808;
+      background-color: var(--surface-0);
       background-image:
         linear-gradient(to bottom right, transparent 50%, var(--cut-border-color) 50% calc(50% + 1px), transparent calc(50% + 1px)),
         linear-gradient(to bottom right, transparent calc(50% - 1px), var(--cut-border-color) calc(50% - 1px) 50%, transparent 50%);
       background-repeat: no-repeat;
       background-position: left top, right bottom;
-      background-size: 7px 7px, 7px 7px;
+      background-size: var(--cut-sm) var(--cut-sm), var(--cut-sm) var(--cut-sm);
       background-origin: border-box;
       background-clip: border-box;
       color: var(--text);
-      padding: 0 12px;
-      font: 600 12px var(--body);
-      letter-spacing: .02em;
+      padding: 0 var(--space-3);
+      font: 600 var(--type-control) var(--body);
+      letter-spacing: var(--track-tight);
       outline: 0;
       clip-path: var(--shape-sm);
     }
@@ -189,10 +273,10 @@
       background-repeat: no-repeat;
       text-transform: uppercase;
       font-family: var(--display);
-      letter-spacing: .06em;
+      letter-spacing: var(--track-display);
     }
     select option {
-      background: #080808;
+      background: var(--surface-0);
       color: var(--text);
       font-family: var(--body);
       text-transform: none;
@@ -201,23 +285,23 @@
     input::-webkit-search-cancel-button,
     input::-webkit-search-results-button,
     input::-webkit-search-results-decoration { display: none; appearance: none; }
-    input::placeholder { color: var(--text-dim); font-weight: 600; letter-spacing: .02em; }
+    input::placeholder { color: var(--text-dim); font-weight: 600; letter-spacing: var(--track-tight); }
     input:focus { --cut-border-color: var(--orange); border-color: var(--orange); }
-    .row { display: flex; gap: 8px; }
+    .row { display: flex; gap: var(--space-2); }
     .button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 36px;
-      padding: 0 12px;
+      min-height: var(--size-control);
+      padding: 0 var(--space-3);
       border: 1px solid var(--line-strong);
       background: var(--surface-2);
-      font-size: 11px;
+      font-size: var(--type-meta);
       font-weight: 700;
-      letter-spacing: .04em;
+      letter-spacing: var(--track-label);
       text-transform: uppercase;
     }
-    .button--primary { border-color: var(--orange); background: var(--orange); color: #000; }
+    .button--primary { border-color: var(--orange); background: var(--orange); color: var(--on-accent); }
     .button--primary:hover { background: var(--orange-hover); }
     .button--ghost { background: transparent; color: var(--text-muted); }
     .button--danger { border-color: var(--danger); color: var(--danger-text); }
@@ -228,37 +312,37 @@
       z-index: 50;
       display: grid;
       place-items: center;
-      padding: 24px;
-      background: rgba(0, 0, 0, .72);
+      padding: var(--space-6);
+      background: var(--scrim);
     }
     .confirm[hidden] { display: none; }
     .confirm-card {
       width: min(420px, 100%);
-      padding: 18px;
+      padding: var(--space-pane);
       border: 1px solid var(--line-strong);
-      background: #080808;
+      background: var(--surface-0);
     }
-    .confirm-card p { margin: 0; font-size: 14px; line-height: 1.45; }
-    .confirm-card .row { justify-content: flex-end; margin-top: 16px; }
-    .gate-actions { display: flex; justify-content: flex-end; margin-top: 16px; }
-    .hint { margin-top: 12px; color: var(--text-dim); font-size: 11px; }
+    .confirm-card p { margin: 0; font-size: var(--type-body); line-height: var(--leading-body); }
+    .confirm-card .row { justify-content: flex-end; margin-top: var(--space-4); }
+    .gate-actions { display: flex; justify-content: flex-end; margin-top: var(--space-4); }
+    .hint { margin-top: var(--space-3); color: var(--text-dim); font-size: var(--type-meta); }
     .error {
       display: none;
-      margin-top: 12px;
-      padding: 10px 12px;
+      margin-top: var(--space-3);
+      padding: var(--space-10) var(--space-3);
       border-left: 3px solid var(--danger);
       background: var(--danger-soft);
       color: var(--danger-text);
-      font-size: 12px;
+      font-size: var(--type-control);
     }
     .error.show { display: block; }
 
-    .desk { display: none; height: 100%; grid-template-rows: 64px auto 1fr; }
+    .desk { display: none; height: 100%; grid-template-rows: var(--size-header) auto 1fr; }
     .desk.on { display: grid; }
     .gate.off { display: none; }
-    .desk-top { min-height: 64px; padding: 0 18px; border-bottom: 1px solid var(--line); }
-    .status { display: flex; align-items: center; gap: 8px; color: var(--text-muted); font-size: 11px; }
-    .dot { width: 7px; height: 7px; background: var(--success); box-shadow: 0 0 0 2px #111a0b; }
+    .desk-top { min-height: var(--size-header); padding: 0 var(--space-pane); border-bottom: 1px solid var(--line); }
+    .status { display: flex; align-items: center; gap: var(--space-2); color: var(--text-muted); font-size: var(--type-meta); }
+    .dot { width: 7px; height: 7px; background: var(--success); box-shadow: 0 0 0 2px var(--signal-green); }
     .workspace { display: grid; grid-template-columns: var(--sidebar-width, 340px) 1fr; min-height: 0; }
     .workspace.is-collapsed { grid-template-columns: 48px 1fr; }
     .workspace.is-collapsed #filters,
@@ -316,26 +400,26 @@
     .boards[data-n="5"], .boards[data-n="6"] { grid-template-columns: 1fr 1fr 1fr; grid-template-rows: 1fr 1fr; }
     .board { min-width: 0; min-height: 0; display: flex; flex-direction: column; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
     .board.on { box-shadow: inset 0 1px var(--orange); }
-    .board header { min-height: 36px; padding: 6px 10px; background: #000; }
-    .board header h2 { font-size: 14px; cursor: pointer; }
+    .board header { min-height: var(--size-control); padding: var(--space-tight) var(--space-10); background: var(--bg); }
+    .board header h2 { font-size: var(--type-body); cursor: pointer; }
     .board.on header h2 { color: var(--orange); }
     .board .pane-body { display: flex; flex: 1; flex-direction: column; min-height: 0; overflow: auto; }
     .board .feed { display: flex; flex: 1; flex-direction: column; min-height: 0; }
     .tab-split {
-      --cut-size: 7px;
+      --cut-size: var(--cut-sm);
       --cut-border-color: var(--line-strong);
       position: relative;
       display: inline-flex;
       align-items: center;
-      gap: 12px;
+      gap: var(--space-3);
       min-height: 44px;
       height: auto;
       margin: 0;
-      padding: 8px 16px;
+      padding: var(--space-2) var(--space-4);
       border: 1px solid var(--cut-border-color);
       border-top-width: 1px;
-      background-color: #080808;
-      clip-path: polygon(7px 0, 100% 0, 100% calc(100% - 7px), calc(100% - 7px) 100%, 0 100%, 0 7px);
+      background-color: var(--surface-0);
+      clip-path: var(--shape-sm);
     }
     .tab-split::before,
     .tab-split::after {
@@ -359,46 +443,46 @@
     }
     .tab-split.on { --cut-border-color: var(--orange); border-color: var(--orange); box-shadow: none; }
     .tab-split.drop { border-color: var(--orange); background: var(--amber-soft); }
-    .tab-split-label { color: var(--beige); font: 700 9px var(--mono); letter-spacing: .12em; }
+    .tab-split-label { color: var(--beige); font: 700 var(--type-kicker) var(--mono); letter-spacing: var(--track-tab); }
     .tab-mini {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: var(--space-2);
       height: 30px;
-      padding: 0 10px;
+      padding: 0 var(--space-10);
       border: 1px solid var(--line);
       background: var(--surface-2);
       color: var(--text);
-      font: 700 11px var(--body);
+      font: 700 var(--type-meta) var(--body);
       cursor: grab;
     }
     .tab-mini.on { box-shadow: inset 0 -2px var(--orange); }
     .tabs.drop { outline: 1px dashed var(--orange); outline-offset: -4px; }
     .pane { min-height: 0; border-right: 1px solid var(--line); display: flex; flex-direction: column; }
     .pane:last-child { border-right: 0; }
-    aside.pane header { min-height: 48px; padding: 10px 14px; }
+    aside.pane header { min-height: 48px; padding: var(--space-10) var(--space-14); }
     .pane-body { flex: 1; overflow: auto; }
-    .facet { border: 1px solid var(--line); background: var(--surface-0); margin-bottom: 12px; }
+    .facet { border: 1px solid var(--line); background: var(--surface-0); margin-bottom: var(--space-3); }
     .facet.is-open.is-active,
     .facet.is-open:focus-within { border-color: color-mix(in srgb, var(--orange) 42%, var(--line-strong)); }
     .facet header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 8px;
+      gap: var(--space-2);
       min-height: 44px;
-      padding: 4px 6px 4px 10px;
-      background: #000;
+      padding: var(--space-1) var(--space-tight) var(--space-1) var(--space-10);
+      background: var(--bg);
       cursor: pointer;
     }
-    .facet header span { color: var(--beige); font: 700 13px var(--mono); letter-spacing: .08em; }
-    .facet header .button { min-height: 26px; padding: 0 8px; font-size: 10px; }
-    .facet-actions { display: flex; align-items: center; gap: 6px; }
-    .facet-actions .freq-reveal { width: 28px; height: 28px; font-size: 18px; }
+    .facet header span { color: var(--beige); font: 700 var(--type-ui) var(--mono); letter-spacing: var(--track-wide); }
+    .facet header .button { min-height: 26px; padding: 0 var(--space-2); font-size: var(--type-label); }
+    .facet-actions { display: flex; align-items: center; gap: var(--space-tight); }
+    .facet-actions .freq-reveal { width: 28px; height: 28px; font-size: var(--type-input); }
     .facet-lead {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: var(--space-2);
       min-width: 0;
       padding: 0;
       border: 0;
@@ -408,24 +492,24 @@
     }
     .facet-chevron {
       color: var(--text-dim);
-      font: 700 14px/1 var(--body);
-      transition: transform 160ms cubic-bezier(.2, .75, .25, 1);
+      font: 700 var(--type-body)/1 var(--body);
+      transition: transform var(--duration-fast) var(--ease-out);
     }
     .facet.is-open .facet-chevron { color: var(--orange); transform: rotate(90deg); }
-    .facet-count { color: var(--orange); font: 700 9px var(--mono); }
+    .facet-count { color: var(--orange); font: 700 var(--type-kicker) var(--mono); }
     .facet:not(.is-open) .pick,
     .facet:not(.is-open) .facet-note { display: none; }
-    .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+    .chips { display: flex; flex-wrap: wrap; gap: var(--space-tight); }
     .chips:empty { display: none; }
     .chip {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: var(--space-tight);
       padding: 5px 7px;
-      border: 1px solid #6c5a43;
+      border: 1px solid var(--line-beige);
       background: var(--amber-soft);
       color: var(--beige);
-      font: 700 10px var(--mono);
+      font: 700 var(--type-label) var(--mono);
     }
     .chip button {
       border: 0;
@@ -434,7 +518,7 @@
       padding: 0;
       line-height: 1;
     }
-    .pick { display: grid; gap: 8px; padding: 10px; }
+    .pick { display: grid; gap: var(--space-2); padding: var(--space-10); }
     .pick-list {
       display: grid;
       align-self: start;
@@ -443,28 +527,31 @@
       max-height: var(--list-height, 168px);
       overflow: auto;
       border: 1px solid var(--line);
-      background: #080808;
+      background: var(--surface-0);
     }
     .unit-tree { --unit-step: 14px; --list-height: 280px; }
+    .freq-tree .unit-tree-row { min-width: 0; }
     .freq-tree .unit-tree-select,
-    .keyword-tree .unit-tree-select { grid-template-columns: 14px minmax(0, 1fr) auto; }
+    .keyword-tree .unit-tree-select { min-width: 0; grid-template-columns: 14px minmax(0, 1fr) auto; }
+    .freq-tree .unit-tree-count { justify-self: end; }
     .keyword-tree .unit-tree-row--branch { grid-template-columns: 16px minmax(0, 1fr) auto; }
     .keyword-tools { z-index: 1; display: flex; align-items: center; gap: 2px; }
     .keyword-tool {
+      z-index: 2;
       width: 22px;
       height: 22px;
       padding: 0;
       border: 0;
       background: transparent;
       color: var(--text-dim);
-      font: 700 14px/1 var(--body);
+      font: 700 var(--type-body)/1 var(--body);
     }
     .keyword-tool:hover { color: var(--orange); }
     .keyword-tool.is-danger:hover { color: var(--danger-text); }
     .keyword-word-add {
       display: flex;
-      gap: 6px;
-      padding: 6px 8px 6px 28px;
+      gap: var(--space-tight);
+      padding: var(--space-tight) var(--space-2) var(--space-tight) 28px;
       border-bottom: 1px solid var(--line);
     }
     .keyword-word-add input { flex: 1; width: auto; min-width: 0; }
@@ -472,8 +559,8 @@
       display: flex;
       align-items: center;
       width: 100%;
-      min-height: 36px;
-      padding: 0 8px 0 calc(7px + var(--unit-depth, 1) * 14px);
+      min-height: var(--size-control);
+      padding: 0 var(--space-2) 0 calc(7px + var(--unit-depth, 1) * 14px);
       border: 0;
       border-bottom: 1px solid var(--line);
       background: transparent;
@@ -482,21 +569,21 @@
     }
     .source-chat:hover { background: var(--surface-2); }
     .source-empty {
-      padding: 8px 8px 8px 28px;
+      padding: var(--space-2) var(--space-2) var(--space-2) 28px;
       color: var(--text-dim);
-      font-size: 12px;
+      font-size: var(--type-control);
     }
     .unit-tree-count {
       color: var(--beige);
-      font: 700 9px var(--mono);
-      letter-spacing: .04em;
+      font: 700 var(--type-kicker) var(--mono);
+      letter-spacing: var(--track-label);
       white-space: nowrap;
     }
     .unit-tree-row--net .unit-tree-select strong {
       font-family: var(--mono);
-      font-size: 12px;
+      font-size: var(--type-control);
       font-weight: 700;
-      letter-spacing: .02em;
+      letter-spacing: var(--track-tight);
     }
     body.is-dragging,
     body.is-dragging * {
@@ -511,18 +598,18 @@
       user-select: none;
       -webkit-user-select: none;
       touch-action: none;
-      background: #000;
+      background: var(--bg);
     }
     .facet.is-open .facet-resize { display: block; }
     .facet-resize::after {
       content: "";
       display: block;
       height: 1px;
-      margin-top: 10px;
+      margin-top: var(--space-10);
       background: var(--line-strong);
     }
     .facet-resize:hover,
-    .facet-resize.is-dragging { background: color-mix(in srgb, var(--orange) 14%, #000); }
+    .facet-resize.is-dragging { background: color-mix(in srgb, var(--orange) 14%, var(--bg)); }
     .facet-resize:hover::after,
     .facet-resize.is-dragging::after { background: var(--orange); }
     .unit-tree-row {
@@ -531,7 +618,7 @@
       grid-template-columns: 16px minmax(0, 1fr);
       align-items: center;
       gap: 3px;
-      min-height: 36px;
+      min-height: var(--size-control);
       padding: 0 7px 0 calc(7px + var(--unit-depth, 0) * var(--unit-step));
       border-bottom: 1px solid var(--line);
     }
@@ -540,7 +627,7 @@
       top: 0;
       bottom: 0;
       left: calc(5px + var(--unit-depth) * var(--unit-step));
-      border-left: 1px solid #3a3a3a;
+      border-left: 1px solid var(--line-mid);
       content: "";
       pointer-events: none;
     }
@@ -549,11 +636,11 @@
       top: 50%;
       left: calc(5px + var(--unit-depth) * var(--unit-step));
       width: 7px;
-      border-top: 1px solid #3a3a3a;
+      border-top: 1px solid var(--line-mid);
       content: "";
       pointer-events: none;
     }
-    .unit-tree-row--selected { background: linear-gradient(90deg, rgba(246,146,30,.14), transparent 78%); box-shadow: inset 2px 0 var(--orange); }
+    .unit-tree-row--selected { background: linear-gradient(90deg, var(--orange-a14), transparent 78%); box-shadow: inset 2px 0 var(--orange); }
     .unit-tree-row--selected .pick-mark { border-color: var(--orange); background: var(--orange); }
     .pick-mark.partial {
       border-color: var(--orange);
@@ -567,7 +654,7 @@
       border: 0;
       background: transparent;
       color: var(--text-dim);
-      font: 700 12px/1 var(--body);
+      font: 700 var(--type-control)/1 var(--body);
     }
     .unit-tree-toggle--open { color: var(--orange); transform: rotate(90deg); }
     .unit-tree-select {
@@ -578,24 +665,24 @@
       gap: 7px;
       width: 100%;
       min-height: 32px;
-      padding: 4px 0;
+      padding: var(--space-1) 0;
       border: 0;
       background: transparent;
       color: var(--text);
       text-align: left;
     }
     .unit-tree-select strong, .unit-tree-select small { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-    .unit-tree-select strong { font-size: 12px; font-weight: 700; }
-    .unit-tree-row--branch .unit-tree-select strong { color: #f3eee7; }
-    .unit-tree-select small { margin-top: 2px; color: var(--text-dim); font: 700 9px var(--mono); }
+    .unit-tree-select strong { font-size: var(--type-control); font-weight: 700; }
+    .unit-tree-row--branch .unit-tree-select strong { color: var(--text-warm); }
+    .unit-tree-select small { margin-top: 2px; color: var(--text-dim); font: 700 var(--type-kicker) var(--mono); }
     .pick-row {
       display: grid;
       grid-template-columns: 18px minmax(0, 1fr) auto;
-      gap: 8px;
+      gap: var(--space-2);
       align-items: center;
       width: 100%;
-      min-height: 36px;
-      padding: 0 8px;
+      min-height: var(--size-control);
+      padding: 0 var(--space-2);
       border: 0;
       border-bottom: 1px solid var(--line);
       border-radius: 0;
@@ -606,13 +693,13 @@
     .pick-row:last-child { border-bottom: 0; }
     .pick-row:hover { background: var(--surface-2); }
     .pick-row.on { background: var(--amber-soft); box-shadow: inset 2px 0 var(--orange); }
-    .pick-row strong { overflow: hidden; font-size: 12px; font-weight: 700; text-overflow: ellipsis; white-space: nowrap; }
-    .pick-row small { color: var(--beige); font: 700 9px var(--mono); letter-spacing: .06em; text-transform: uppercase; }
+    .pick-row strong { overflow: hidden; font-size: var(--type-control); font-weight: 700; text-overflow: ellipsis; white-space: nowrap; }
+    .pick-row small { color: var(--beige); font: 700 var(--type-kicker) var(--mono); letter-spacing: var(--track-display); text-transform: uppercase; }
     .pick-mark {
       width: 14px;
       height: 14px;
       border: 1px solid var(--line-strong);
-      background: #000;
+      background: var(--bg);
       clip-path: polygon(3px 0, 100% 0, 100% calc(100% - 3px), calc(100% - 3px) 100%, 0 100%, 0 3px);
     }
     .pick-row.on .pick-mark { border-color: var(--orange); background: var(--orange); }
@@ -620,43 +707,47 @@
       border: 0;
       background: transparent;
       color: var(--text-dim);
-      font: 700 14px/1 var(--body);
-      padding: 0 4px;
+      font: 700 var(--type-body)/1 var(--body);
+      padding: 0 var(--space-1);
     }
     .pick-remove:hover { color: var(--danger-text); }
-    .add { display: flex; gap: 6px; }
-    .freq-add { display: grid; gap: 8px; }
+    .add { display: flex; gap: var(--space-tight); }
+    .freq-add { display: grid; gap: var(--space-2); }
     .freq-reveal {
+      display: grid;
+      place-items: center;
       width: 36px;
-      height: 36px;
+      height: var(--size-control);
+      padding: 0;
       border: 1px solid var(--line-strong);
       background: transparent;
       color: var(--orange);
-      font: 700 22px/1 var(--body);
+      font: 700 var(--type-brand)/1 var(--body);
     }
+    .freq-reveal svg { display: block; }
     .freq-reveal.on { border-color: var(--orange); background: var(--amber-soft); }
     .freq-chosen {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      min-height: 36px;
-      padding: 0 8px 0 12px;
+      min-height: var(--size-control);
+      padding: 0 var(--space-2) 0 var(--space-3);
       border: 1px solid var(--orange);
       background: var(--amber-soft);
       color: var(--text);
-      font: 600 12px var(--body);
+      font: 600 var(--type-control) var(--body);
     }
     .freq-target {
       display: flex;
       align-items: center;
       justify-content: space-between;
       width: 100%;
-      height: 36px;
-      padding: 0 12px;
+      height: var(--size-control);
+      padding: 0 var(--space-3);
       border: 1px solid var(--line-strong);
-      background: #080808;
+      background: var(--surface-0);
       color: var(--text);
-      font: 600 12px var(--body);
+      font: 600 var(--type-control) var(--body);
       text-align: left;
     }
     .freq-target.is-empty { color: var(--text-dim); }
@@ -666,34 +757,34 @@
       max-height: 220px;
       overflow: auto;
       border: 1px solid var(--line);
-      background: #080808;
+      background: var(--surface-0);
     }
     .unit-tree-row--custom,
     .unit-tree-row--removable,
     .unit-tree-row--edit { grid-template-columns: 16px minmax(0, 1fr) auto; }
     .tree-add {
       display: flex;
-      gap: 6px;
-      padding: 6px 8px 6px calc(28px + var(--unit-depth, 0) * var(--unit-step));
+      gap: var(--space-tight);
+      padding: var(--space-tight) var(--space-2) var(--space-tight) calc(28px + var(--unit-depth, 0) * var(--unit-step));
       border-bottom: 1px solid var(--line);
     }
     .tree-add input { flex: 1; width: auto; min-width: 0; }
-    .add .button { min-height: 36px; }
+    .add .button { min-height: var(--size-control); }
     .name-row {
       display: flex;
       align-items: center;
-      gap: 8px;
-      min-height: 36px;
-      padding: 0 8px;
+      gap: var(--space-2);
+      min-height: var(--size-control);
+      padding: 0 var(--space-2);
       border-bottom: 1px solid var(--line);
     }
     .name-row:last-child { border-bottom: 0; }
     .name-row.on { background: var(--amber-soft); box-shadow: inset 2px 0 var(--orange); }
     .name-row .unit-tree-select { flex: 1; }
     .name-row.on .pick-mark { border-color: var(--orange); background: var(--orange); }
-    .lean { color: var(--beige); font: 700 9px var(--mono); letter-spacing: .08em; }
-    .facet-note { padding: 0 10px 4px; color: var(--text-dim); font-size: 10px; }
-    .feed { display: grid; align-content: start; gap: 14px; }
+    .lean { color: var(--beige); font: 700 var(--type-kicker) var(--mono); letter-spacing: var(--track-wide); }
+    .facet-note { padding: 0 var(--space-10) var(--space-1); color: var(--text-dim); font-size: var(--type-label); }
+    .feed { display: grid; align-content: start; gap: var(--space-14); }
     .card {
       --cut-size: var(--cut-sm);
       --cut-border-color: var(--line);
@@ -701,14 +792,14 @@
       border: 1px solid var(--line);
       clip-path: var(--shape-sm);
     }
-    .card header { display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 42px; padding: 8px 12px; }
-    .card header .button { min-height: 26px; padding: 0 8px; font-size: 10px; }
+    .card header { display: flex; align-items: center; justify-content: space-between; gap: var(--space-2); min-height: 42px; padding: var(--space-2) var(--space-3); }
+    .card header .button { min-height: 26px; padding: 0 var(--space-2); font-size: var(--type-label); }
     .card header strong {
       font-family: var(--display);
       font-weight: 600;
-      letter-spacing: .04em;
+      letter-spacing: var(--track-label);
     }
-    .card-body { padding: 12px 14px 16px; white-space: pre-wrap; font-size: 14px; line-height: 1.45; }
+    .card-body { padding: var(--space-3) var(--space-14) var(--space-4); white-space: pre-wrap; font-size: var(--type-body); line-height: var(--leading-body); }
     .freq { color: var(--orange); font-weight: 700; }
     .mgrs {
       padding: 0;
@@ -738,49 +829,66 @@
       width: 48px;
       height: 48px;
       place-items: center;
-      margin-bottom: 12px;
+      margin-bottom: var(--space-3);
       border: 1px solid var(--orange);
       background-color: transparent;
       color: var(--orange);
-      font: 700 22px var(--display);
+      font: 700 var(--type-brand) var(--display);
       clip-path: var(--shape-sm);
     }
+    .watch-prompts {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: var(--space-2);
+      max-width: 640px;
+      margin-top: var(--space-pane);
+    }
+    .watch-prompts button {
+      border: 1px solid var(--line-strong);
+      background: var(--surface-0);
+      color: var(--beige);
+      padding: var(--space-2) var(--space-10);
+      font: 600 var(--type-ui)/1.3 var(--body);
+      text-align: left;
+    }
+    .watch-prompts button:hover { border-color: var(--orange); color: var(--text); }
     .empty h3 {
       color: var(--text);
       font-family: var(--display);
-      font-size: 20px;
+      font-size: var(--type-title);
       font-weight: 600;
       text-transform: uppercase;
     }
-    .count { color: var(--text-dim); font: 700 10px var(--mono); }
+    .count { color: var(--text-dim); font: 700 var(--type-label) var(--mono); }
     .tab-row {
       display: flex;
       align-items: center;
       min-width: 0;
       min-height: 72px;
       border-bottom: 1px solid var(--line);
-      background: #000;
+      background: var(--bg);
     }
     .tabs {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: var(--space-2);
       flex: 1;
       min-width: 0;
       min-height: 72px;
-      padding: 12px;
+      padding: var(--space-3);
       border-bottom: 0;
-      background: #000;
+      background: var(--bg);
       overflow-x: auto;
     }
     .tab-watch {
       flex: 0 0 auto;
       height: 44px;
-      margin-right: 12px;
-      padding: 0 14px;
+      margin-right: var(--space-3);
+      padding: 0 var(--space-14);
       border: 1px solid var(--line-strong);
       color: var(--beige);
-      letter-spacing: .08em;
+      letter-spacing: var(--track-wide);
       text-transform: uppercase;
     }
     .tab-watch.on {
@@ -803,7 +911,7 @@
       min-width: 0;
       min-height: 0;
       height: 100%;
-      background: #000;
+      background: var(--bg);
     }
     .workspace.is-watch .watch {
       display: grid !important;
@@ -821,14 +929,14 @@
       grid-template-rows: auto minmax(0, 1fr);
       min-height: 0;
       border-right: 1px solid var(--line);
-      background: #080808;
+      background: var(--surface-0);
     }
     .watch-thread-head {
       display: flex;
       align-items: center;
       justify-content: space-between;
       min-height: 44px;
-      padding: 0 8px 0 12px;
+      padding: 0 var(--space-2) 0 var(--space-3);
       border-bottom: 1px solid var(--line);
     }
     .watch-threads.is-collapsed { justify-items: center; }
@@ -848,35 +956,35 @@
       border: 1px solid var(--line-strong);
       background: transparent;
       color: var(--beige);
-      font: 700 14px/1 var(--body);
+      font: 700 var(--type-body)/1 var(--body);
     }
     .watch-threads-toggle:hover { border-color: var(--orange); color: var(--orange); }
     .watch-thread-head strong {
       font-family: var(--display);
-      font-size: 14px;
+      font-size: var(--type-body);
       font-weight: 600;
-      letter-spacing: .08em;
+      letter-spacing: var(--track-wide);
       text-transform: uppercase;
     }
     .watch-thread-list { overflow: auto; }
-    .watch-thread-empty { margin: 0; padding: 12px; color: var(--text-dim); font-size: 12px; }
+    .watch-thread-empty { margin: 0; padding: var(--space-3); color: var(--text-dim); font-size: var(--type-control); }
     .watch-thread {
       display: grid;
       grid-template-columns: minmax(0, 1fr) auto;
       align-items: center;
-      gap: 4px;
+      gap: var(--space-1);
       min-height: 40px;
-      padding: 0 6px 0 8px;
+      padding: 0 var(--space-tight) 0 var(--space-2);
       border-bottom: 1px solid var(--line);
     }
-    .watch-thread.on { background: linear-gradient(90deg, rgba(246,146,30,.14), transparent 78%); box-shadow: inset 2px 0 var(--orange); }
+    .watch-thread.on { background: linear-gradient(90deg, var(--orange-a14), transparent 78%); box-shadow: inset 2px 0 var(--orange); }
     .watch-thread-open {
       min-width: 0;
-      padding: 8px 4px;
+      padding: var(--space-2) var(--space-1);
       border: 0;
       background: transparent;
       color: var(--text);
-      font: 600 12px var(--body);
+      font: 600 var(--type-control) var(--body);
       text-align: left;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -886,14 +994,14 @@
     .watch-thread-tools { display: flex; gap: 2px; }
     .watch-archive-toggle {
       width: 100%;
-      min-height: 36px;
-      padding: 0 12px;
+      min-height: var(--size-control);
+      padding: 0 var(--space-3);
       border: 0;
       border-bottom: 1px solid var(--line);
       background: transparent;
       color: var(--beige);
-      font: 700 10px var(--mono);
-      letter-spacing: .08em;
+      font: 700 var(--type-label) var(--mono);
+      letter-spacing: var(--track-wide);
       text-align: left;
       text-transform: uppercase;
     }
@@ -908,61 +1016,78 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 18px;
+      gap: var(--space-pane);
       min-height: 0;
       overflow: auto;
-      padding: 22px 18px;
+      padding: var(--space-22) var(--space-pane);
     }
     .watch-log:has(.empty) { justify-content: center; }
     .watch-turn, .watch-log > .empty { width: min(720px, 100%); }
-    .watch-turn { display: grid; gap: 10px; }
+    .watch-turn { display: grid; gap: var(--space-10); }
     .watch-ask {
       justify-self: end;
       display: grid;
-      gap: 8px;
+      gap: var(--space-2);
       max-width: 62ch;
-      padding: 10px 12px;
+      padding: var(--space-10) var(--space-3);
       border: 1px solid var(--line-strong);
-      background: #080808;
+      background: var(--surface-0);
       color: var(--beige);
-      font-size: 14px;
-      line-height: 1.45;
+      font-size: var(--type-body);
+      line-height: var(--leading-body);
     }
     .watch-reply {
       display: grid;
-      gap: 12px;
-      padding: 14px 14px 12px;
+      gap: var(--space-3);
+      padding: var(--space-14) var(--space-14) var(--space-3);
       border: 1px solid var(--line);
       background: var(--surface-0);
     }
     .watch-reply-kicker {
       color: var(--orange);
-      font: 700 10px var(--mono);
-      letter-spacing: .12em;
+      font: 700 var(--type-label) var(--mono);
+      letter-spacing: var(--track-tab);
       text-transform: uppercase;
     }
-    .watch-reply p { margin: 0; font-size: 15px; line-height: 1.5; }
+    .watch-reply p { margin: 0; font-size: var(--type-copy); line-height: var(--leading-copy); }
+    .watch-lead { white-space: pre-wrap; }
+    .watch-thought { color: var(--text-dim); font-size: var(--type-control); line-height: var(--leading-body); }
+    .watch-thought summary {
+      cursor: pointer;
+      color: var(--beige);
+      font: 700 var(--type-label) var(--mono);
+      letter-spacing: var(--track-wide);
+      text-transform: uppercase;
+    }
+    .watch-thought p { margin: var(--space-tight) 0 0; white-space: pre-wrap; }
+    .watch-acts { display: grid; gap: var(--space-1); margin: 0; padding: 0; list-style: none; }
+    .watch-acts li {
+      color: var(--beige);
+      font: 700 var(--type-meta)/1.4 var(--mono);
+      letter-spacing: var(--track-label);
+    }
+    .watch-acts li::before { content: "→ "; color: var(--orange); }
     .watch-data { display: grid; margin: 0; border-top: 1px solid var(--line); }
     .watch-data div {
       display: grid;
       grid-template-columns: 88px minmax(0, 1fr);
-      gap: 10px;
+      gap: var(--space-10);
       padding: 7px 0;
       border-bottom: 1px solid var(--line);
     }
     .watch-data dt {
       margin: 0;
       color: var(--beige);
-      font: 700 10px var(--mono);
-      letter-spacing: .06em;
+      font: 700 var(--type-label) var(--mono);
+      letter-spacing: var(--track-display);
       text-transform: uppercase;
     }
-    .watch-data dd { margin: 0; font-size: 13px; line-height: 1.4; }
-    .watch-evidence { display: grid; gap: 8px; }
+    .watch-data dd { margin: 0; font-size: var(--type-ui); line-height: 1.4; }
+    .watch-evidence { display: grid; gap: var(--space-2); }
     .watch-evidence span {
       color: var(--text-dim);
-      font: 700 10px var(--mono);
-      letter-spacing: .08em;
+      font: 700 var(--type-label) var(--mono);
+      letter-spacing: var(--track-wide);
       text-transform: uppercase;
     }
     .watch-quote {
@@ -970,62 +1095,145 @@
       padding-left: 10px;
       border-left: 2px solid var(--orange);
       color: var(--text-muted);
-      font-size: 13px;
+      font-size: var(--type-ui);
       line-height: 1.4;
+    }
+    .watch-reply.is-pending {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      min-height: 84px;
+    }
+    .spinner {
+      display: inline-grid;
+      place-items: center;
+      flex: 0 0 auto;
+      color: var(--orange);
+      font: 700 22px/1 "Noto Sans Symbols 2", "Apple Symbols", sans-serif;
+      transform-origin: center;
+      animation: loader-signal 1.1s ease-in-out infinite;
+    }
+    .spinner__glyph { display: block; }
+    .feed-loading {
+      display: flex;
+      min-height: 240px;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      color: var(--text-muted);
+    }
+    .feed-loading.is-inline { min-height: 0; }
+    .skeleton {
+      background: linear-gradient(90deg, var(--surface-2) 25%, var(--line) 50%, var(--surface-2) 75%);
+      background-size: 200% 100%;
+      animation: skeleton-shimmer 1.4s ease-in-out infinite;
+    }
+    .card-skeleton { display: grid; gap: var(--space-14); padding: var(--space-14); }
+    .skeleton-title { height: 14px; width: 42%; }
+    .card-skeleton-body { display: grid; gap: var(--space-2); }
+    .skeleton-line { height: 10px; }
+    .watch-phase {
+      margin: 0;
+      color: var(--beige);
+      font: 700 var(--type-meta)/1.4 var(--mono);
+      letter-spacing: var(--track-wide);
+      text-transform: uppercase;
+    }
+    .watch-reply.is-fresh { animation: card-scroll-in var(--duration-enter) var(--ease-out) both; }
+    .watch-lead.is-typing::after {
+      content: "";
+      display: inline-block;
+      width: 7px;
+      height: .9em;
+      margin-left: 3px;
+      background: var(--orange);
+      vertical-align: text-bottom;
+      animation: watch-caret 1s steps(1) infinite;
+    }
+    .watch-reply.is-fresh .watch-data div,
+    .watch-reply.is-fresh .watch-quote {
+      animation: watch-row-in 320ms var(--ease-out) both;
+    }
+    @keyframes loader-signal {
+      0%, 100% { opacity: .5; transform: scale(.86); }
+      50% { opacity: 1; transform: scale(1.12); }
+    }
+    @keyframes skeleton-shimmer {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+    @keyframes watch-caret {
+      0%, 45% { opacity: 1; }
+      46%, 100% { opacity: 0; }
+    }
+    @keyframes watch-row-in {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: none; }
     }
     .watch-compose {
       display: grid;
-      gap: 8px;
+      gap: var(--space-2);
       width: 100%;
       min-width: 0;
-      padding: 12px 18px 16px;
+      padding: var(--space-3) var(--space-pane) var(--space-4);
       border-top: 1px solid var(--line);
     }
     .watch-compose-row {
       display: flex;
       align-items: center;
-      gap: 8px;
+      justify-content: flex-end;
+      gap: var(--space-2);
       width: 100%;
       min-width: 0;
     }
-    .watch-compose-row input {
-      flex: 1 1 0;
-      width: auto;
-      min-width: 0;
+    .watch-compose-row .watch-status { margin-right: auto; }
+    #watch-input {
+      display: block;
+      width: 100%;
+      min-height: 128px;
+      height: 128px;
+      max-height: 280px;
+      margin: 0;
+      padding: var(--space-3) var(--space-14);
+      resize: vertical;
+      line-height: 1.4;
+      font: 600 var(--type-input)/1.4 var(--body);
+      letter-spacing: var(--track-input);
     }
+    #watch-input::placeholder { color: var(--text-dim); font: 600 var(--type-input)/1.4 var(--body); }
     .watch-compose-row .button,
     .watch-compose-row .watch-icon { flex: 0 0 auto; }
     #watch-file { display: none; }
-    .watch-status { color: var(--beige); font: 700 11px var(--mono); letter-spacing: .06em; white-space: nowrap; }
+    .watch-status { color: var(--beige); font: 700 var(--type-meta) var(--mono); letter-spacing: var(--track-display); white-space: nowrap; }
     .watch-status[hidden], #watch-stop[hidden] { display: none; }
-    .watch-compose .button, .watch-icon { min-height: 36px; }
+    .watch-compose .button, .watch-icon { min-height: var(--size-control); }
     .watch-icon {
       display: grid;
       width: 36px;
       place-items: center;
       border: 1px solid var(--line-strong);
-      background: #080808;
+      background: var(--surface-0);
       color: var(--beige);
     }
     .watch-icon:hover, .watch-icon.is-on { border-color: var(--orange); color: var(--orange); }
     .watch-icon.is-on { animation: mic-pulse 1.2s ease-out infinite; }
     @keyframes mic-pulse {
-      0% { box-shadow: 0 0 0 0 rgba(246, 146, 30, .45); }
-      100% { box-shadow: 0 0 0 8px rgba(246, 146, 30, 0); }
+      0% { box-shadow: 0 0 0 0 var(--orange-a45); }
+      100% { box-shadow: 0 0 0 8px transparent; }
     }
-    .watch-pending, .watch-files { display: flex; flex-wrap: wrap; gap: 6px; }
+    .watch-pending, .watch-files { display: flex; flex-wrap: wrap; gap: var(--space-tight); }
     .watch-files { justify-content: flex-end; }
     .watch-file {
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: var(--space-tight);
       max-width: 240px;
       min-height: 28px;
-      padding: 4px 8px;
+      padding: var(--space-1) var(--space-2);
       border: 1px solid var(--line-strong);
-      background: #000;
+      background: var(--bg);
       color: var(--text);
-      font-size: 12px;
+      font-size: var(--type-control);
     }
     .watch-file img { width: 32px; height: 32px; object-fit: cover; }
     .watch-file span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
@@ -1033,21 +1241,21 @@
       border: 0;
       background: transparent;
       color: var(--text-dim);
-      font: 700 14px var(--body);
+      font: 700 var(--type-body) var(--body);
     }
     .watch-file button:hover { color: var(--orange); }
     .tab {
       display: inline-flex;
       flex: 0 0 auto;
       align-items: center;
-      gap: 8px;
+      gap: var(--space-2);
       width: max-content;
       height: 44px;
-      padding: 0 12px 0 8px;
+      padding: 0 var(--space-3) 0 var(--space-2);
       border: 1px solid transparent;
       background: transparent;
       color: var(--text-muted);
-      font: 700 13px var(--body);
+      font: 700 var(--type-ui) var(--body);
       cursor: pointer;
     }
     .tab-grip, .tab-mini-grip {
@@ -1085,7 +1293,7 @@
       border-radius: 0;
       background: transparent;
       color: inherit;
-      font: 700 11px var(--body);
+      font: 700 var(--type-meta) var(--body);
       field-sizing: content;
     }
     .tab.on input.tab-name-input:focus { border-bottom: 1px solid var(--orange); }
@@ -1096,33 +1304,33 @@
       height: 18px;
       padding: 0 5px;
       color: var(--beige);
-      font: 800 13px/1 var(--body);
+      font: 800 var(--type-ui)/1 var(--body);
     }
     .tab-unread {
       display: inline-grid;
       place-items: center;
       min-width: 22px;
       height: 22px;
-      padding: 0 6px;
+      padding: 0 var(--space-tight);
       background: var(--orange);
-      color: #000;
-      font: 800 14px/1 var(--body);
+      color: var(--on-accent);
+      font: 800 var(--type-body)/1 var(--body);
     }
     .tab-new { display: none; }
     .card-main {
       display: grid;
       grid-template-columns: 200px minmax(0, 1fr);
       align-items: start;
-      gap: 14px;
-      padding: 12px 0 12px 14px;
+      gap: var(--space-14);
+      padding: var(--space-3) 0 var(--space-3) var(--space-14);
     }
-    .card-main .card-body { padding: 0 14px 4px 0; }
+    .card-main .card-body { padding: 0 var(--space-14) var(--space-1) 0; }
     .card-shot-btn {
       display: block;
       width: 100%;
       padding: 0;
       border: 0;
-      background: #111;
+      background: var(--media-well);
       cursor: zoom-in;
     }
     .card-shot {
@@ -1133,7 +1341,7 @@
       object-fit: contain;
       object-position: center top;
       border: 0;
-      background: #111;
+      background: var(--media-well);
     }
     .modal {
       position: fixed;
@@ -1141,8 +1349,8 @@
       z-index: 40;
       display: grid;
       place-items: center;
-      padding: 24px;
-      background: rgba(0, 0, 0, .82);
+      padding: var(--space-6);
+      background: var(--scrim-strong);
     }
     .modal[hidden] { display: none; }
     .modal img {
@@ -1151,13 +1359,15 @@
       border: 1px solid var(--line-strong);
     }
     .card--fresh { --cut-border-color: var(--orange); border-color: var(--orange); }
-    .card-enter { animation: card-scroll-in 520ms cubic-bezier(.2, .75, .25, 1) both; }
+    .card-enter { animation: card-scroll-in var(--duration-enter) var(--ease-out) both; }
     @keyframes card-scroll-in {
       from { opacity: 0; transform: translateY(-36px); }
       to { opacity: 1; transform: none; }
     }
     @media (prefers-reduced-motion: reduce) {
-      .card-enter, .watch-icon.is-on { animation: none; }
+      .card-enter, .watch-icon.is-on, .spinner, .skeleton, .watch-reply.is-fresh,
+      .watch-reply.is-fresh .watch-data div, .watch-reply.is-fresh .watch-quote,
+      .watch-lead.is-typing::after { animation: none; }
     }
     .tab-x, .tab-add {
       display: grid;
@@ -1167,7 +1377,7 @@
       border: 0;
       background: transparent;
       color: var(--text-dim);
-      font: 700 14px/1 var(--body);
+      font: 700 var(--type-body)/1 var(--body);
     }
     .tab-x:hover { color: var(--danger-text); }
     .tab-add {
@@ -1175,7 +1385,7 @@
       height: 44px;
       border: 1px solid var(--line-strong);
       color: var(--orange);
-      font-size: 22px;
+      font-size: var(--type-brand);
     }
     .tab-add:hover { border-color: var(--orange); background: var(--amber-soft); }
 
@@ -1187,39 +1397,39 @@
 </head>
 <body>
   <section class="gate" id="gate">
+    <div class="gate-stack">
     <form class="gate-card cut" id="gate-form">
       <header>
         <div class="brand">
-          <svg class="mark" viewBox="0 0 22 22" aria-hidden="true"><text x="11" y="17" text-anchor="middle" fill="#f6921e" font-size="20" font-family="Noto Sans Symbols 2, Apple Symbols, sans-serif" font-weight="700">ꑭ</text></svg>
+          <svg class="mark" viewBox="0 0 22 22" aria-hidden="true"><text x="11" y="17" text-anchor="middle" fill="currentColor" font-size="20" font-family="Noto Sans Symbols 2, Apple Symbols, sans-serif" font-weight="700">ꑭ</text></svg>
           <div>
-            <div class="eyebrow">Особистий доступ</div>
             <h1>ПОТІК</h1>
           </div>
         </div>
       </header>
       <div class="gate-body">
-        <p>Пароль відкриває ваш фільтр. Спільний ПОТІК у Signal лишається як є.</p>
         <label>
-          <span>Позивний</span>
-          <input id="callsign-input" type="text" autocomplete="nickname" placeholder="Дрозд" autofocus />
+          <span>Користувач</span>
+          <input id="callsign-input" type="text" autocomplete="username" placeholder="Введіть позивний" autofocus />
         </label>
         <label>
-          <span>Пароль</span>
-          <input id="password" type="password" autocomplete="current-password" />
+          <span>Гасло</span>
+          <input id="password" type="password" autocomplete="current-password" placeholder="Введіть гасло" />
         </label>
-        <div class="error" id="gate-error">Введіть пароль.</div>
+        <div class="error" id="gate-error">Введіть гасло.</div>
         <div class="gate-actions">
           <button class="button button--primary" type="submit">Увійти</button>
         </div>
-        <p class="hint">Прототип. Будь-який непорожній пароль. Картки вигадані.</p>
       </div>
     </form>
+    <p class="gate-slogan"><span class="gate-slogan-main">Витримки вам і дохлого москаля!</span><span class="gate-slogan-sub">Слава Україні!</span></p>
+    </div>
   </section>
 
   <section class="desk" id="desk">
     <header class="desk-top">
       <div class="brand">
-        <svg class="mark" viewBox="0 0 22 22" aria-hidden="true"><text x="11" y="17" text-anchor="middle" fill="#f6921e" font-size="20" font-family="Noto Sans Symbols 2, Apple Symbols, sans-serif" font-weight="700">ꑭ</text></svg>
+        <svg class="mark" viewBox="0 0 22 22" aria-hidden="true"><text x="11" y="17" text-anchor="middle" fill="currentColor" font-size="20" font-family="Noto Sans Symbols 2, Apple Symbols, sans-serif" font-weight="700">ꑭ</text></svg>
         <h1>ПОТІК</h1>
       </div>
       <div class="status">
@@ -1251,9 +1461,9 @@
           <div class="watch-log" id="watch-log"></div>
           <form class="watch-compose" id="watch-form">
             <div class="watch-pending" id="watch-pending"></div>
+            <textarea id="watch-input" rows="5" placeholder="Напиши Дозорному"></textarea>
             <div class="watch-compose-row">
               <span class="watch-status" id="watch-status" hidden>Читає базу</span>
-              <input id="watch-input" type="text" placeholder="Запитайте про ім’я, зв’язок, частоту або місце" />
               <button class="watch-icon" id="watch-attach" type="button" aria-label="Прикріпити файл"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M8.5 12.5l6-6a2.8 2.8 0 014 4l-7.2 7.2a4.2 4.2 0 01-6-6l6.6-6.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="miter"/></svg></button>
               <input id="watch-file" type="file" hidden multiple />
               <button class="watch-icon" id="watch-mic" type="button" aria-label="Записати голос"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><rect x="9" y="3" width="6" height="11" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M6 11a6 6 0 0012 0M12 17v4M8 21h8" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button>
@@ -2621,19 +2831,23 @@
       })(unitRoots);
     }
 
-    function bindFrequencyPaths() {
-      const owners = new Map();
-      for (const node of unitNodes) {
-        const key = fold(node.label);
-        if (!owners.has(key)) owners.set(key, []);
-        owners.get(key).push(node);
+    function frequencyOwner(row) {
+      if (row.path) {
+        const bound = nodeById(row.path);
+        if (bound) return bound;
       }
+      const matches = unitNodes.filter((node) => fold(node.label) === fold(row.formation));
+      if (!matches.length) return null;
+      matches.sort((left, right) => left.depth - right.depth || left.id.length - right.id.length);
+      return matches[0];
+    }
+
+    function bindFrequencyPaths() {
       for (const row of CATALOG.frequencies) {
-        if (row.path && unitNodes.some((node) => fold(node.id) === fold(row.path))) continue;
-        const list = owners.get(fold(row.formation)) || [];
-        if (list.length !== 1) continue;
-        row.path = list[0].id;
-        row.formation = list[0].label;
+        const owner = frequencyOwner(row);
+        if (!owner) continue;
+        row.path = owner.id;
+        row.formation = owner.label;
       }
     }
 
@@ -2967,11 +3181,6 @@
       return "";
     }
 
-    function visibleFormations(text) {
-      const needle = fold(text);
-      return CATALOG.formations.filter((row) => !needle || fold(row.name).includes(needle));
-    }
-
     const sourceLabels = ["⚛️ Нейтрон 2.0 ⚛️", "📖 Альманах 📖", "🗿Каменярі🗿", "🦉 Вуха 66 🦉"];
 
     function cardSource(card) {
@@ -3223,8 +3432,14 @@
     }
 
     function scopedFrequencies() {
-      const labels = new Set(filters.formation.flatMap(subtreeLabels).map(fold));
-      return CATALOG.frequencies.filter((row) => row.custom || !labels.size || labels.has(fold(row.formation)));
+      if (!filters.formation.length) return CATALOG.frequencies;
+      return CATALOG.frequencies.filter((row) => {
+        if (row.custom) return true;
+        const path = fold(row.path || "");
+        if (path && filters.formation.some((id) => path === fold(id) || path.startsWith(fold(id) + " > "))) return true;
+        const labels = new Set(filters.formation.flatMap(subtreeLabels).map(fold));
+        return labels.has(fold(row.formation));
+      });
     }
 
     function byFreq(left, right) {
@@ -3261,38 +3476,6 @@
       return whole + "." + (frac + "0000").slice(0, 4);
     }
 
-    function extraFormationNodes() {
-      const known = new Set(unitNodes.map((node) => fold(node.label)));
-      const extras = [];
-      for (const row of CATALOG.frequencies) {
-        if (!row.formation || known.has(fold(row.formation))) continue;
-        known.add(fold(row.formation));
-        extras.push({
-          id: "label:" + row.formation,
-          label: row.formation,
-          path: [row.formation],
-          depth: 0,
-          children: [],
-        });
-      }
-      return extras;
-    }
-
-    function freqTargetLabel() {
-      const node = nodeById(freqTargetId);
-      if (node) return node.label;
-      if (freqTargetId.startsWith("label:")) return freqTargetId.slice(6);
-      return "";
-    }
-
-    function revealFreqTarget(id) {
-      const node = nodeById(id);
-      if (!node) return;
-      for (let index = 1; index < node.path.length; index += 1) {
-        freqTargetExpanded.add(node.path.slice(0, index).join(" > "));
-      }
-    }
-
     function revealFreqNode(node) {
       for (let index = 1; index <= node.path.length; index += 1) {
         freqExpanded.add(node.path.slice(0, index).join(" > "));
@@ -3301,14 +3484,21 @@
 
     function addFrequency(formationId, raw) {
       const freq = normalizeFreq(raw);
+      if (!freq) return;
       const node = nodeById(formationId);
-      if (!node || !freq) return;
+      const loose = !node && formationId && !String(formationId).startsWith("freq:");
+      const formation = node
+        ? node.label
+        : (loose ? cleanLabel(formationId) : String(formationId || "").replace(/^freq:/, ""));
+      const path = node ? node.id : "";
+      const formationName = formation === "none" ? "" : formation;
       const exists = CATALOG.frequencies.some((row) => (
-        fold(row.freq) === fold(freq) && fold(row.path || "") === fold(node.id)
+        fold(row.freq) === fold(freq) && fold(row.path || "") === fold(path) && fold(row.formation || "") === fold(formationName)
       ));
-      if (!exists) CATALOG.frequencies.push({ freq, formation: node.label, lean: "", path: node.id, custom: true });
+      if (!exists) CATALOG.frequencies.push({ freq, formation: formationName, lean: "", path, custom: true });
       if (!selected("freq", freq)) filters.freq.push(freq);
-      revealFreqNode(node);
+      if (node) revealFreqNode(node);
+      else freqExpanded.add(formationName ? "freq:" + formationName : "freq:none");
       freqAddParent = "";
       freqAddOpen = false;
       query.freq = "";
@@ -3501,24 +3691,6 @@
       return input;
     }
 
-    function row(on, title, meta, onClick) {
-      const button = document.createElement("button");
-      button.type = "button";
-      button.className = "pick-row" + (on ? " on" : "");
-      const mark = document.createElement("span");
-      mark.className = "pick-mark";
-      const name = document.createElement("strong");
-      name.textContent = title;
-      button.append(mark, name);
-      if (meta) {
-        const small = document.createElement("small");
-        small.textContent = meta;
-        button.append(small);
-      }
-      button.addEventListener("click", onClick);
-      return button;
-    }
-
     function allSelected(key, values) {
       return values.length > 0 && values.every((value) => selected(key, value));
     }
@@ -3535,6 +3707,208 @@
       const drop = new Set(values.map(fold));
       filters[key] = filters[key].filter((item) => !drop.has(fold(item)));
       render();
+    }
+
+    function facetIcon(label, markup) {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "freq-reveal";
+      button.setAttribute("aria-label", label);
+      button.title = label;
+      button.innerHTML = markup;
+      return button;
+    }
+
+    function revealButton(open, closedLabel, openLabel, onClick) {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "freq-reveal" + (open ? " on" : "");
+      button.textContent = open ? "×" : "+";
+      button.setAttribute("aria-label", open ? openLabel : closedLabel);
+      button.addEventListener("click", (event) => {
+        event.stopPropagation();
+        onClick();
+      });
+      return button;
+    }
+
+    function toolButton(label, danger, onClick) {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "keyword-tool" + (danger ? " is-danger" : "");
+      button.textContent = danger ? "×" : "+";
+      button.setAttribute("aria-label", label);
+      button.addEventListener("click", (event) => {
+        event.stopPropagation();
+        onClick();
+      });
+      return button;
+    }
+
+    function facetActions(...nodes) {
+      const actions = document.createElement("div");
+      actions.className = "facet-actions";
+      actions.append(...nodes);
+      return actions;
+    }
+
+    function addForm(fields, onSubmit, className) {
+      const form = document.createElement("form");
+      form.className = className || "add";
+      const inputs = fields.map((field) => {
+        const input = document.createElement("input");
+        input.type = "text";
+        if (field.inputMode) input.inputMode = field.inputMode;
+        input.placeholder = field.placeholder || "";
+        if (field.data) {
+          for (const [key, value] of Object.entries(field.data)) input.dataset[key] = value;
+        }
+        return input;
+      });
+      const button = document.createElement("button");
+      button.className = "button";
+      button.type = "submit";
+      button.textContent = "Додати";
+      form.append(...inputs, button);
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        onSubmit(inputs);
+      });
+      return form;
+    }
+
+    function emptyState(title, text, glyph) {
+      const empty = document.createElement("div");
+      empty.className = "empty";
+      if (glyph) {
+        const mark = document.createElement("div");
+        mark.className = "glyph cut";
+        if (String(glyph).trim().startsWith("<")) {
+          mark.setAttribute("aria-hidden", "true");
+          mark.innerHTML = glyph;
+        } else {
+          mark.textContent = glyph;
+        }
+        empty.append(mark);
+      }
+      const heading = document.createElement("h3");
+      heading.textContent = title;
+      const copy = document.createElement("p");
+      copy.textContent = text;
+      empty.append(heading, copy);
+      return empty;
+    }
+
+    function attachRename(title, value, cancelClick, onSave) {
+      title.title = "Двічі клацніть, щоб перейменувати";
+      title.addEventListener("dblclick", (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        cancelClick();
+        const input = document.createElement("input");
+        input.type = "text";
+        input.className = "tab-name-input";
+        input.value = value;
+        title.replaceWith(input);
+        input.focus();
+        input.select();
+        let done = false;
+        const finish = (save) => {
+          if (done) return;
+          done = true;
+          if (save) onSave(input.value);
+          else render();
+        };
+        input.addEventListener("keydown", (ev) => {
+          if (ev.key === "Enter") { ev.preventDefault(); finish(true); }
+          if (ev.key === "Escape") { ev.preventDefault(); finish(false); }
+        });
+        input.addEventListener("blur", () => finish(true));
+      });
+    }
+
+    function treeRow(options) {
+      const row = document.createElement("div");
+      const classes = ["unit-tree-row"];
+      if (options.branch) classes.push("unit-tree-row--branch");
+      if (options.nested) classes.push("unit-tree-row--nested");
+      if (options.selected) classes.push("unit-tree-row--selected");
+      if (options.edit) classes.push("unit-tree-row--edit");
+      if (options.net) classes.push("unit-tree-row--net");
+      if (options.removable) classes.push("unit-tree-row--removable");
+      row.className = classes.join(" ");
+      if (options.depth != null) row.style.setProperty("--unit-depth", String(options.depth));
+      if (options.onToggle) {
+        const toggle = document.createElement("button");
+        toggle.type = "button";
+        toggle.className = "unit-tree-toggle" + (options.open ? " unit-tree-toggle--open" : "");
+        toggle.textContent = "▸";
+        toggle.setAttribute("aria-label", options.open ? "Згорнути" : "Розгорнути");
+        toggle.addEventListener("click", (event) => {
+          event.stopPropagation();
+          options.onToggle();
+        });
+        row.append(toggle);
+      } else {
+        const spacer = document.createElement("span");
+        spacer.className = "unit-tree-spacer";
+        row.append(spacer);
+      }
+      const select = document.createElement("button");
+      select.type = "button";
+      select.className = "unit-tree-select";
+      if (options.mark !== false) {
+        const mark = document.createElement("span");
+        mark.className = "pick-mark" + (options.partial ? " partial" : "");
+        select.append(mark);
+      }
+      const title = document.createElement("strong");
+      title.textContent = options.label;
+      select.append(title);
+      if (options.count != null) {
+        const count = document.createElement("span");
+        count.className = "unit-tree-count";
+        count.textContent = String(options.count);
+        select.append(count);
+      }
+      if (options.onSelect) select.addEventListener("click", options.onSelect);
+      row.append(select);
+      return { row, select, title };
+    }
+
+    function removeButton(label, onClick) {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "pick-remove";
+      button.textContent = "×";
+      button.setAttribute("aria-label", label);
+      button.addEventListener("click", (event) => {
+        event.stopPropagation();
+        onClick();
+      });
+      return button;
+    }
+
+    function choiceRow(label, on, onSelect, removeLabel, onRemove) {
+      const line = document.createElement("div");
+      line.className = "name-row" + (on ? " on" : "");
+      const built = treeRow({ label, selected: false, mark: true });
+      built.row.className = "";
+      built.select.addEventListener("click", onSelect);
+      line.append(built.select, removeButton(removeLabel, onRemove));
+      return line;
+    }
+
+    function clearAllButton(key) {
+      const button = facetIcon(
+        "Очистити усі",
+        '<svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>',
+      );
+      button.addEventListener("click", () => {
+        filters[key] = [];
+        render();
+      });
+      return button;
     }
 
     const collapsed = new Set();
@@ -3569,8 +3943,7 @@
         head.append(action);
       }
       head.addEventListener("click", () => {
-        if (collapsed.has(title)) collapsed.delete(title);
-        else collapsed.add(title);
+        flip(collapsed, title);
         render();
       });
       if (facetHeights[title]) {
@@ -3671,11 +4044,13 @@
     }
 
     function allButton(key, values) {
-      const button = document.createElement("button");
-      button.type = "button";
-      button.className = "button";
       const full = allSelected(key, values);
-      button.textContent = full ? "Зняти" : "Обрати всі";
+      const button = facetIcon(
+        full ? "Зняти" : "Обрати всі",
+        full
+          ? '<svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M5 5h14v14H5zM8 12h8" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>'
+          : '<svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M3.5 12.5l2.8 2.8L12 8M10 12.5l2.8 2.8L20.5 7.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="miter"/></svg>',
+      );
       button.addEventListener("click", () => {
         if (full) clearShown(key, values);
         else selectAll(key, values);
@@ -3687,121 +4062,89 @@
       for (const node of visibleTree(search)) {
         const open = expanded.has(node.id);
         const covered = isCovered(key, node);
-        const rowEl = document.createElement("div");
-        rowEl.className = "unit-tree-row"
-          + (node.children.length ? " unit-tree-row--branch" : "")
-          + (node.depth ? " unit-tree-row--nested" : "")
-          + (covered ? " unit-tree-row--selected" : "");
-        rowEl.style.setProperty("--unit-depth", String(node.depth));
-        if (node.children.length) {
-          const toggleBtn = document.createElement("button");
-          toggleBtn.type = "button";
-          toggleBtn.className = "unit-tree-toggle" + (open ? " unit-tree-toggle--open" : "");
-          toggleBtn.textContent = "▸";
-          toggleBtn.setAttribute("aria-label", open ? "Згорнути" : "Розгорнути");
-          toggleBtn.addEventListener("click", (event) => {
-            event.stopPropagation();
-            if (expanded.has(node.id)) expanded.delete(node.id);
-            else expanded.add(node.id);
-            render();
-          });
-          rowEl.append(toggleBtn);
-        } else {
-          const spacer = document.createElement("span");
-          spacer.className = "unit-tree-spacer";
-          rowEl.append(spacer);
-        }
-        const select = document.createElement("button");
-        select.type = "button";
-        select.className = "unit-tree-select";
-        const mark = document.createElement("span");
-        mark.className = "pick-mark" + (!covered && hasPartial(key, node) ? " partial" : "");
-        const title = document.createElement("strong");
-        title.textContent = node.label;
-        title.title = "Двічі клацніть, щоб перейменувати";
-        select.append(mark, title);
         let clickTimer = null;
+        const built = treeRow({
+          branch: node.children.length,
+          nested: node.depth,
+          selected: covered,
+          depth: node.depth,
+          partial: !covered && hasPartial(key, node),
+          label: node.label,
+          open,
+          onToggle: node.children.length ? () => {
+            flip(expanded, node.id);
+            render();
+          } : null,
+        });
+        const { row: rowEl, select, title } = built;
         select.addEventListener("click", () => {
           clearTimeout(clickTimer);
           clickTimer = setTimeout(() => toggleBranch(key, node.id), 220);
         });
-        title.addEventListener("dblclick", (event) => {
-          event.preventDefault();
-          event.stopPropagation();
-          clearTimeout(clickTimer);
-          const input = document.createElement("input");
-          input.type = "text";
-          input.className = "tab-name-input";
-          input.value = node.label;
-          title.replaceWith(input);
-          input.focus();
-          input.select();
-          let done = false;
-          const finish = (save) => {
-            if (done) return;
-            done = true;
-            if (save) renameFormation(node.id, input.value);
-            else render();
-          };
-          input.addEventListener("keydown", (ev) => {
-            if (ev.key === "Enter") { ev.preventDefault(); finish(true); }
-            if (ev.key === "Escape") { ev.preventDefault(); finish(false); }
-          });
-          input.addEventListener("blur", () => finish(true));
-        });
-        const tools = document.createElement("span");
-        tools.className = "keyword-tools";
-        const addChild = document.createElement("button");
-        addChild.type = "button";
-        addChild.className = "keyword-tool";
-        addChild.textContent = "+";
-        addChild.setAttribute("aria-label", "Додати формування під " + node.label);
-        addChild.addEventListener("click", (event) => {
-          event.stopPropagation();
-          formationChildParent = formationChildParent === node.id ? "" : node.id;
-          if (formationChildParent) expanded.add(node.id);
-          pendingFocus = formationChildParent ? "formation-child" : "";
-          render();
-        });
-        const removeNode = document.createElement("button");
-        removeNode.type = "button";
-        removeNode.className = "keyword-tool is-danger";
-        removeNode.textContent = "×";
-        removeNode.setAttribute("aria-label", "Прибрати " + node.label);
-        removeNode.addEventListener("click", (event) => {
-          event.stopPropagation();
-          const message = node.children.length
-            ? "Прибрати формування " + node.label + " і все під ним?"
-            : "Прибрати формування " + node.label + "?";
-          askConfirm(message, "Прибрати", () => removeFormation(node.id));
-        });
-        tools.append(addChild, removeNode);
+        attachRename(title, node.label, () => clearTimeout(clickTimer), (value) => renameFormation(node.id, value));
+        const tools = toolBar(
+          toolButton("Додати формування під " + node.label, false, () => {
+            formationChildParent = formationChildParent === node.id ? "" : node.id;
+            if (formationChildParent) expanded.add(node.id);
+            pendingFocus = formationChildParent ? "formation-child" : "";
+            render();
+          }),
+          toolButton("Прибрати " + node.label, true, () => {
+            const message = node.children.length
+              ? "Прибрати формування " + node.label + " і все під ним?"
+              : "Прибрати формування " + node.label + "?";
+            askConfirm(message, "Прибрати", () => removeFormation(node.id));
+          }),
+        );
         rowEl.classList.add("unit-tree-row--edit");
-        rowEl.append(select, tools);
+        rowEl.append(tools);
         list.append(rowEl);
         if (formationChildParent === node.id) {
-          const childAdd = document.createElement("form");
-          childAdd.className = "tree-add";
+          const childAdd = addForm(
+            [{ placeholder: "Під " + node.label, data: { formationChild: "1" } }],
+            (inputs) => addFormation(node.id, inputs[0].value),
+            "tree-add",
+          );
           childAdd.style.setProperty("--unit-depth", String(node.depth + 1));
-          const childInput = document.createElement("input");
-          childInput.type = "text";
-          childInput.placeholder = "Під " + node.label;
-          childInput.dataset.formationChild = "1";
-          const childButton = document.createElement("button");
-          childButton.className = "button";
-          childButton.type = "submit";
-          childButton.textContent = "Додати";
-          childAdd.append(childInput, childButton);
-          childAdd.addEventListener("submit", (event) => {
-            event.preventDefault();
-            addFormation(node.id, childInput.value);
-          });
           list.append(childAdd);
         }
       }
     }
 
     const listScroll = {};
+
+    function pickList(name, tree) {
+      const list = document.createElement("div");
+      list.className = "pick-list" + (tree ? " " + tree : "");
+      if (name) list.dataset.list = name;
+      if (tree) list.setAttribute("role", "tree");
+      return list;
+    }
+
+    function toolBar(...nodes) {
+      const tools = document.createElement("span");
+      tools.className = "keyword-tools";
+      tools.append(...nodes);
+      return tools;
+    }
+
+    function flip(set, id) {
+      if (set.has(id)) set.delete(id);
+      else set.add(id);
+      return set.has(id);
+    }
+
+    function mountFacet(spec) {
+      const pick = document.createElement("div");
+      pick.className = "pick";
+      spec.fill(pick);
+      const actions = facetActions(
+        revealButton(spec.open(), spec.addLabel, spec.hideLabel, spec.onReveal),
+        allButton(spec.key, spec.values()),
+      );
+      if (spec.tail) spec.tail(actions);
+      filterRoot.append(facet(spec.title, "", pick, actions, spec.key));
+    }
 
     function renderFilters() {
       for (const list of filterRoot.querySelectorAll(".pick-list")) {
@@ -3811,8 +4154,19 @@
       const caret = focus ? document.activeElement.selectionStart : null;
       filterRoot.replaceChildren();
 
-      const sourcePick = document.createElement("div");
-      sourcePick.className = "pick";
+      mountFacet({
+        title: "Джерело",
+        key: "sources",
+        open: () => sourceAddOpen,
+        addLabel: "Додати джерело",
+        hideLabel: "Сховати групи",
+        values: () => visibleSources(query.sources),
+        onReveal: () => {
+          sourceAddOpen = !sourceAddOpen;
+          if (sourceAddOpen) collapsed.delete("Джерело");
+          render();
+        },
+        fill(sourcePick) {
       if (sourceAddOpen) {
         sourcePick.append(searchField("sourcePicker", "Шукати групу або чат"));
         const sourceTree = document.createElement("div");
@@ -3823,35 +4177,19 @@
           const available = availableSources(platform, query.sourcePicker);
           if (pickerQuery && !available.length && !fold(platform).includes(pickerQuery)) continue;
           const open = pickerQuery ? available.length > 0 : sourceExpanded.has(platform);
-          const rowEl = document.createElement("div");
-          rowEl.className = "unit-tree-row unit-tree-row--branch";
-          const toggleBtn = document.createElement("button");
-          toggleBtn.type = "button";
-          toggleBtn.className = "unit-tree-toggle" + (open ? " unit-tree-toggle--open" : "");
-          toggleBtn.textContent = "▸";
-          toggleBtn.setAttribute("aria-label", open ? "Згорнути" : "Розгорнути");
-          toggleBtn.addEventListener("click", (event) => {
-            event.stopPropagation();
-            if (sourceExpanded.has(platform)) sourceExpanded.delete(platform);
-            else sourceExpanded.add(platform);
+          const toggleSource = () => {
+            flip(sourceExpanded, platform);
             render();
-          });
-          const title = document.createElement("strong");
-          title.textContent = platform;
-          const count = document.createElement("span");
-          count.className = "unit-tree-count";
-          count.textContent = String(available.length);
-          const select = document.createElement("button");
-          select.type = "button";
-          select.className = "unit-tree-select";
-          select.append(title, count);
-          select.addEventListener("click", () => {
-            if (sourceExpanded.has(platform)) sourceExpanded.delete(platform);
-            else sourceExpanded.add(platform);
-            render();
-          });
-          rowEl.append(toggleBtn, select);
-          sourceTree.append(rowEl);
+          };
+          sourceTree.append(treeRow({
+            branch: true,
+            mark: false,
+            label: platform,
+            count: available.length,
+            open,
+            onToggle: toggleSource,
+            onSelect: toggleSource,
+          }).row);
           if (!open) continue;
           if (!available.length) {
             const none = document.createElement("div");
@@ -3876,394 +4214,211 @@
       }
       sourcePick.append(chips("sources", (value) => displaySource(value)));
       sourcePick.append(searchField("sources", "Шукати джерело"));
-      const sourceList = document.createElement("div");
-      sourceList.className = "pick-list";
-      sourceList.dataset.list = "sources";
+      const sourceList = pickList("sources");
       for (const label of visibleSources(query.sources)) {
-        const line = document.createElement("div");
-        line.className = "name-row" + (selected("sources", label) ? " on" : "");
-        const choose = document.createElement("button");
-        choose.type = "button";
-        choose.className = "unit-tree-select";
-        const mark = document.createElement("span");
-        mark.className = "pick-mark";
-        const name = document.createElement("strong");
-        name.textContent = displaySource(label);
-        choose.append(mark, name);
-        choose.addEventListener("click", () => toggle("sources", label));
-        const remove = document.createElement("button");
-        remove.type = "button";
-        remove.className = "pick-remove";
-        remove.textContent = "×";
-        remove.setAttribute("aria-label", "Прибрати " + displaySource(label));
-        remove.addEventListener("click", (event) => {
-          event.stopPropagation();
-          askConfirm("Прибрати джерело " + displaySource(label) + " зі списку?", "Прибрати", () => removeSource(label));
-        });
-        line.append(choose, remove);
-        sourceList.append(line);
+        sourceList.append(choiceRow(
+          displaySource(label),
+          selected("sources", label),
+          () => toggle("sources", label),
+          "Прибрати " + displaySource(label),
+          () => askConfirm("Прибрати джерело " + displaySource(label) + " зі списку?", "Прибрати", () => removeSource(label)),
+        ));
       }
       sourcePick.append(sourceList);
-      const sourceActions = document.createElement("div");
-      sourceActions.className = "facet-actions";
-      const sourceReveal = document.createElement("button");
-      sourceReveal.type = "button";
-      sourceReveal.className = "freq-reveal" + (sourceAddOpen ? " on" : "");
-      sourceReveal.textContent = sourceAddOpen ? "×" : "+";
-      sourceReveal.setAttribute("aria-label", sourceAddOpen ? "Сховати групи" : "Додати джерело");
-      sourceReveal.addEventListener("click", (event) => {
-        event.stopPropagation();
-        sourceAddOpen = !sourceAddOpen;
-        if (sourceAddOpen) collapsed.delete("Джерело");
-        render();
+        },
       });
-      sourceActions.append(sourceReveal, allButton("sources", visibleSources(query.sources)));
-      filterRoot.append(facet(
-        "Джерело",
-        "",
-        sourcePick,
-        sourceActions,
-        "sources",
-      ));
 
-      const formationPick = document.createElement("div");
-      formationPick.className = "pick";
+      mountFacet({
+        title: "Формування",
+        key: "formation",
+        open: () => formationAddOpen,
+        addLabel: "Додати формування",
+        hideLabel: "Сховати нове формування",
+        values: () => visibleTree(query.formation).map((item) => item.id),
+        onReveal: () => {
+          formationAddOpen = !formationAddOpen;
+          if (formationAddOpen) collapsed.delete("Формування");
+          pendingFocus = formationAddOpen ? "formation-add" : "";
+          render();
+        },
+        fill(formationPick) {
       if (formationAddOpen) {
-        const formationAdd = document.createElement("form");
-        formationAdd.className = "add";
-        const formationInput = document.createElement("input");
-        formationInput.type = "text";
-        formationInput.placeholder = "Нове формування";
-        formationInput.dataset.formationAdd = "1";
-        const formationButton = document.createElement("button");
-        formationButton.className = "button";
-        formationButton.type = "submit";
-        formationButton.textContent = "Додати";
-        formationAdd.append(formationInput, formationButton);
-        formationAdd.addEventListener("submit", (event) => {
-          event.preventDefault();
-          addFormation("", formationInput.value);
-        });
-        formationPick.append(formationAdd);
+        formationPick.append(addForm(
+          [{ placeholder: "Нове формування", data: { formationAdd: "1" } }],
+          (inputs) => addFormation("", inputs[0].value),
+        ));
       }
       formationPick.append(chips("formation", shortPath));
       formationPick.append(searchField("formation", "Шукати в ієрархії"));
-      const formationList = document.createElement("div");
-      formationList.className = "pick-list unit-tree";
-      formationList.dataset.list = "formation";
-      formationList.setAttribute("role", "tree");
+      const formationList = pickList("formation", "unit-tree");
       fillUnitTree(formationList, "formation", query.formation);
       formationPick.append(formationList);
-      const formationValues = visibleTree(query.formation).map((item) => item.id);
-      const formationActions = document.createElement("div");
-      formationActions.className = "facet-actions";
-      const formationReveal = document.createElement("button");
-      formationReveal.type = "button";
-      formationReveal.className = "freq-reveal" + (formationAddOpen ? " on" : "");
-      formationReveal.textContent = formationAddOpen ? "×" : "+";
-      formationReveal.setAttribute("aria-label", formationAddOpen ? "Сховати нове формування" : "Додати формування");
-      formationReveal.addEventListener("click", (event) => {
-        event.stopPropagation();
-        formationAddOpen = !formationAddOpen;
-        if (formationAddOpen) collapsed.delete("Формування");
-        pendingFocus = formationAddOpen ? "formation-add" : "";
-        render();
+        },
       });
-      formationActions.append(formationReveal, allButton("formation", formationValues));
-      filterRoot.append(facet(
-        "Формування",
-        "",
-        formationPick,
-        formationActions,
-        "formation",
-      ));
 
-      const namePick = document.createElement("div");
-      namePick.className = "pick";
+      mountFacet({
+        title: "Імена",
+        key: "names",
+        open: () => nameAddOpen,
+        addLabel: "Додати ім’я",
+        hideLabel: "Сховати додавання імені",
+        values: () => visibleNames(query.names),
+        onReveal: () => {
+          nameAddOpen = !nameAddOpen;
+          if (nameAddOpen) collapsed.delete("Імена");
+          render();
+        },
+        fill(namePick) {
       if (nameAddOpen) {
-        const add = document.createElement("form");
-        add.className = "add";
-        const addInput = document.createElement("input");
-        addInput.type = "text";
-        addInput.placeholder = "Нове ім’я";
-        const addButton = document.createElement("button");
-        addButton.className = "button";
-        addButton.type = "submit";
-        addButton.textContent = "Додати";
-        add.append(addInput, addButton);
-        add.addEventListener("submit", (event) => {
-          event.preventDefault();
-          addName(addInput.value);
-        });
-        namePick.append(add);
+        namePick.append(addForm(
+          [{ placeholder: "Нове ім’я" }],
+          (inputs) => addName(inputs[0].value),
+        ));
       }
       namePick.append(chips("names", (value) => value));
       namePick.append(searchField("names", "Шукати ім’я"));
-      const nameList = document.createElement("div");
-      nameList.className = "pick-list";
-      nameList.dataset.list = "names";
+      const nameList = pickList("names");
       for (const name of visibleNames(query.names)) {
-        const line = document.createElement("div");
-        line.className = "name-row" + (selected("names", name) ? " on" : "");
-        const mark = document.createElement("span");
-        mark.className = "pick-mark";
-        const label = document.createElement("strong");
-        label.textContent = name;
-        const choose = document.createElement("button");
-        choose.type = "button";
-        choose.className = "unit-tree-select";
-        choose.append(mark, label);
-        choose.addEventListener("click", () => toggle("names", name));
-        const remove = document.createElement("button");
-        remove.type = "button";
-        remove.className = "pick-remove";
-        remove.textContent = "×";
-        remove.setAttribute("aria-label", "Прибрати " + name + " зі списку");
-        remove.addEventListener("click", (event) => {
-          event.stopPropagation();
-          askConfirm("Прибрати ім’я " + name + " зі списку?", "Прибрати", () => removeName(name));
-        });
-        line.append(choose, remove);
-        nameList.append(line);
+        nameList.append(choiceRow(
+          name,
+          selected("names", name),
+          () => toggle("names", name),
+          "Прибрати " + name + " зі списку",
+          () => askConfirm("Прибрати ім’я " + name + " зі списку?", "Прибрати", () => removeName(name)),
+        ));
       }
       namePick.append(nameList);
-      const nameActions = document.createElement("div");
-      nameActions.className = "facet-actions";
-      const nameReveal = document.createElement("button");
-      nameReveal.type = "button";
-      nameReveal.className = "freq-reveal" + (nameAddOpen ? " on" : "");
-      nameReveal.textContent = nameAddOpen ? "×" : "+";
-      nameReveal.setAttribute("aria-label", nameAddOpen ? "Сховати додавання імені" : "Додати ім’я");
-      nameReveal.addEventListener("click", (event) => {
-        event.stopPropagation();
-        nameAddOpen = !nameAddOpen;
-        if (nameAddOpen) collapsed.delete("Імена");
-        render();
+        },
       });
-      nameActions.append(nameReveal, allButton("names", visibleNames(query.names)));
-      filterRoot.append(facet(
-        "Імена",
-        "",
-        namePick,
-        nameActions,
-        "names",
-      ));
 
-      const keywordPick = document.createElement("div");
-      keywordPick.className = "pick";
+      mountFacet({
+        title: "Ключові слова",
+        key: "keywords",
+        open: () => keywordAddOpen,
+        addLabel: "Нова група",
+        hideLabel: "Сховати нову групу",
+        values: () => visibleKeywordEntries(query.keywords).filter((entry) => entry.kind === "word").map((entry) => entry.word.label),
+        onReveal: () => {
+          keywordAddOpen = !keywordAddOpen;
+          if (keywordAddOpen) collapsed.delete("Ключові слова");
+          render();
+        },
+        fill(keywordPick) {
       if (keywordAddOpen) {
-        const keywordAdd = document.createElement("form");
-        keywordAdd.className = "add";
-        const keywordInput = document.createElement("input");
-        keywordInput.type = "text";
-        keywordInput.placeholder = "Нова група";
-        keywordInput.dataset.keywordAdd = "1";
-        const keywordButton = document.createElement("button");
-        keywordButton.className = "button";
-        keywordButton.type = "submit";
-        keywordButton.textContent = "Додати";
-        keywordAdd.append(keywordInput, keywordButton);
-        keywordAdd.addEventListener("submit", (event) => {
-          event.preventDefault();
-          addKeywordGroup(keywordInput.value);
-        });
-        keywordPick.append(keywordAdd);
+        keywordPick.append(addForm(
+          [{ placeholder: "Нова група", data: { keywordAdd: "1" } }],
+          (inputs) => addKeywordGroup(inputs[0].value),
+        ));
       }
       keywordPick.append(chips("keywords", (value) => value));
       keywordPick.append(searchField("keywords", "Шукати слово"));
-      const keywordList = document.createElement("div");
-      keywordList.className = "pick-list unit-tree keyword-tree";
-      keywordList.dataset.list = "keywords";
-      keywordList.setAttribute("role", "tree");
+      const keywordList = pickList("keywords", "unit-tree keyword-tree");
       for (const entry of visibleKeywordEntries(query.keywords)) {
         if (entry.kind === "group") {
           const labels = entry.group.words.map((word) => word.label);
           const covered = labels.length > 0 && labels.every((label) => selected("keywords", label));
           const partial = !covered && labels.some((label) => selected("keywords", label));
-          const rowEl = document.createElement("div");
-          rowEl.className = "unit-tree-row unit-tree-row--branch" + (covered ? " unit-tree-row--selected" : "");
-          const toggleBtn = document.createElement("button");
-          toggleBtn.type = "button";
-          toggleBtn.className = "unit-tree-toggle" + (entry.open ? " unit-tree-toggle--open" : "");
-          toggleBtn.textContent = "▸";
-          toggleBtn.setAttribute("aria-label", entry.open ? "Згорнути" : "Розгорнути");
-          toggleBtn.addEventListener("click", (event) => {
-            event.stopPropagation();
-            if (keywordExpanded.has(entry.group.id)) keywordExpanded.delete(entry.group.id);
-            else keywordExpanded.add(entry.group.id);
-            render();
-          });
-          const select = document.createElement("button");
-          select.type = "button";
-          select.className = "unit-tree-select";
-          const mark = document.createElement("span");
-          mark.className = "pick-mark" + (partial ? " partial" : "");
-          const title = document.createElement("strong");
-          title.textContent = entry.group.label;
-          const count = document.createElement("span");
-          count.className = "unit-tree-count";
-          count.textContent = String(labels.length);
-          select.append(mark, title, count);
           let clickTimer = null;
+          const built = treeRow({
+            branch: true,
+            selected: covered,
+            partial,
+            label: entry.group.label,
+            count: labels.length,
+            open: entry.open,
+            onToggle: () => {
+              flip(keywordExpanded, entry.group.id);
+              render();
+            },
+          });
+          const { row: rowEl, select, title } = built;
           select.addEventListener("click", () => {
             clearTimeout(clickTimer);
             clickTimer = setTimeout(() => toggleKeywordGroup(entry.group), 220);
           });
-          title.title = "Двічі клацніть, щоб перейменувати";
-          title.addEventListener("dblclick", (event) => {
-            event.preventDefault();
-            event.stopPropagation();
-            clearTimeout(clickTimer);
-            const input = document.createElement("input");
-            input.type = "text";
-            input.className = "tab-name-input";
-            input.value = entry.group.label;
-            title.replaceWith(input);
-            input.focus();
-            input.select();
-            let done = false;
-            const finish = (save) => {
-              if (done) return;
-              done = true;
-              if (save) renameKeywordGroup(entry.group.id, input.value);
-              else render();
-            };
-            input.addEventListener("keydown", (ev) => {
-              if (ev.key === "Enter") { ev.preventDefault(); finish(true); }
-              if (ev.key === "Escape") { ev.preventDefault(); finish(false); }
-            });
-            input.addEventListener("blur", () => finish(true));
-          });
-          const tools = document.createElement("span");
-          tools.className = "keyword-tools";
-          const addWord = document.createElement("button");
-          addWord.type = "button";
-          addWord.className = "keyword-tool";
-          addWord.textContent = "+";
-          addWord.setAttribute("aria-label", "Додати слово в " + entry.group.label);
-          addWord.addEventListener("click", (event) => {
-            event.stopPropagation();
-            keywordWordGroup = keywordWordGroup === entry.group.id ? null : entry.group.id;
-            if (keywordWordGroup) keywordExpanded.add(entry.group.id);
-            render();
-          });
-          const removeGroup = document.createElement("button");
-          removeGroup.type = "button";
-          removeGroup.className = "keyword-tool is-danger";
-          removeGroup.textContent = "×";
-          removeGroup.setAttribute("aria-label", "Прибрати групу " + entry.group.label);
-          removeGroup.addEventListener("click", (event) => {
-            event.stopPropagation();
-            const message = entry.group.words.length
-              ? "Прибрати групу " + entry.group.label + " і її слова?"
-              : "Прибрати групу " + entry.group.label + "?";
-            askConfirm(message, "Прибрати", () => removeKeywordGroup(entry.group.id));
-          });
-          tools.append(addWord, removeGroup);
-          rowEl.append(toggleBtn, select, tools);
+          attachRename(title, entry.group.label, () => clearTimeout(clickTimer), (value) => renameKeywordGroup(entry.group.id, value));
+          const tools = toolBar(
+            toolButton("Додати слово в " + entry.group.label, false, () => {
+              keywordWordGroup = keywordWordGroup === entry.group.id ? null : entry.group.id;
+              if (keywordWordGroup) keywordExpanded.add(entry.group.id);
+              render();
+            }),
+            toolButton("Прибрати групу " + entry.group.label, true, () => {
+              const message = entry.group.words.length
+                ? "Прибрати групу " + entry.group.label + " і її слова?"
+                : "Прибрати групу " + entry.group.label + "?";
+              askConfirm(message, "Прибрати", () => removeKeywordGroup(entry.group.id));
+            }),
+          );
+          rowEl.append(tools);
           keywordList.append(rowEl);
           continue;
         }
         if (entry.kind === "add") {
-          const wordAdd = document.createElement("form");
-          wordAdd.className = "keyword-word-add";
-          const wordInput = document.createElement("input");
-          wordInput.type = "text";
-          wordInput.placeholder = "Слово в «" + entry.group.label + "»";
-          const wordButton = document.createElement("button");
-          wordButton.className = "button";
-          wordButton.type = "submit";
-          wordButton.textContent = "Додати";
-          wordAdd.append(wordInput, wordButton);
-          wordAdd.addEventListener("submit", (event) => {
-            event.preventDefault();
-            addKeywordToGroup(entry.group.id, wordInput.value);
-          });
-          keywordList.append(wordAdd);
+          keywordList.append(addForm(
+            [{ placeholder: "Слово в «" + entry.group.label + "»" }],
+            (inputs) => addKeywordToGroup(entry.group.id, inputs[0].value),
+            "keyword-word-add",
+          ));
           continue;
         }
         const on = selected("keywords", entry.word.label);
-        const rowEl = document.createElement("div");
-        rowEl.className = "unit-tree-row unit-tree-row--nested" + (on ? " unit-tree-row--selected" : "");
-        rowEl.style.setProperty("--unit-depth", "1");
-        const spacer = document.createElement("span");
-        spacer.className = "unit-tree-spacer";
-        const select = document.createElement("button");
-        select.type = "button";
-        select.className = "unit-tree-select";
-        const mark = document.createElement("span");
-        mark.className = "pick-mark";
-        const title = document.createElement("strong");
-        title.textContent = entry.word.label;
-        select.append(mark, title);
-        select.addEventListener("click", () => toggle("keywords", entry.word.label));
-        rowEl.classList.add("unit-tree-row--removable");
-        rowEl.append(spacer, select);
-        const remove = document.createElement("button");
-        remove.type = "button";
-        remove.className = "pick-remove";
-        remove.textContent = "×";
-        remove.setAttribute("aria-label", "Прибрати " + entry.word.label);
-        remove.addEventListener("click", (event) => {
-          event.stopPropagation();
-          askConfirm("Прибрати слово " + entry.word.label + "?", "Прибрати", () => removeKeywordFromGroup(entry.group.id, entry.word.label));
-        });
-        rowEl.append(remove);
+        const rowEl = treeRow({
+          nested: true,
+          selected: on,
+          removable: true,
+          depth: 1,
+          label: entry.word.label,
+          onSelect: () => toggle("keywords", entry.word.label),
+        }).row;
+        rowEl.append(removeButton(
+          "Прибрати " + entry.word.label,
+          () => askConfirm("Прибрати слово " + entry.word.label + "?", "Прибрати", () => removeKeywordFromGroup(entry.group.id, entry.word.label)),
+        ));
         keywordList.append(rowEl);
       }
       keywordPick.append(keywordList);
-      const keywordValues = visibleKeywordEntries(query.keywords)
-        .filter((entry) => entry.kind === "word")
-        .map((entry) => entry.word.label);
-      const keywordActions = document.createElement("div");
-      keywordActions.className = "facet-actions";
-      const keywordReveal = document.createElement("button");
-      keywordReveal.type = "button";
-      keywordReveal.className = "freq-reveal" + (keywordAddOpen ? " on" : "");
-      keywordReveal.textContent = keywordAddOpen ? "×" : "+";
-      keywordReveal.setAttribute("aria-label", keywordAddOpen ? "Сховати нову групу" : "Нова група");
-      keywordReveal.addEventListener("click", (event) => {
-        event.stopPropagation();
-        keywordAddOpen = !keywordAddOpen;
-        if (keywordAddOpen) collapsed.delete("Ключові слова");
-        render();
+        },
       });
-      keywordActions.append(keywordReveal, allButton("keywords", keywordValues));
-      filterRoot.append(facet(
-        "Ключові слова",
-        "",
-        keywordPick,
-        keywordActions,
-        "keywords",
-      ));
 
-      const freqPick = document.createElement("div");
-      freqPick.className = "pick";
+      mountFacet({
+        title: "Частоти",
+        key: "freq",
+        open: () => freqAddOpen,
+        addLabel: "Додати частоту",
+        hideLabel: "Сховати додавання",
+        values: () => visibleFrequencies(query.freq).map((item) => item.freq),
+        onReveal: () => {
+          freqAddOpen = !freqAddOpen;
+          if (freqAddOpen) collapsed.delete("Частоти");
+          pendingFocus = freqAddOpen ? "freq-add" : "";
+          render();
+        },
+        tail: (actions) => { if (filters.freq.length) actions.append(clearAllButton("freq")); },
+        fill(freqPick) {
       freqPick.append(chips("freq", (value) => value));
+      if (freqAddOpen) {
+        freqPick.append(addForm(
+          [
+            { placeholder: "Частота", inputMode: "decimal", data: { freqAdd: "1" } },
+            { placeholder: "Формування" },
+          ],
+          (inputs) => {
+            const named = unitNodes.find((node) => fold(node.label) === fold(inputs[1].value));
+            addFrequency(named ? named.id : cleanLabel(inputs[1].value), inputs[0].value);
+          },
+        ));
+      }
       freqPick.append(searchField("freq", "Шукати частоту або формування"));
-      const freqList = document.createElement("div");
-      freqList.className = "pick-list unit-tree freq-tree";
-      freqList.dataset.list = "freq";
-      freqList.setAttribute("role", "tree");
+      const freqList = pickList("freq", "unit-tree freq-tree");
       for (const entry of visibleFreqEntries(query.freq)) {
         if (entry.kind === "add") {
-          const freqAdd = document.createElement("form");
-          freqAdd.className = "tree-add";
+          const freqAdd = addForm(
+            [{ placeholder: "Частота в «" + entry.node.label + "»", inputMode: "decimal", data: { freqRowAdd: "1" } }],
+            (inputs) => addFrequency(entry.node.id, inputs[0].value),
+            "tree-add",
+          );
           freqAdd.style.setProperty("--unit-depth", String(entry.depth));
-          const freqInput = document.createElement("input");
-          freqInput.type = "text";
-          freqInput.inputMode = "decimal";
-          freqInput.placeholder = "Частота в «" + entry.node.label + "»";
-          freqInput.dataset.freqRowAdd = "1";
-          const freqButton = document.createElement("button");
-          freqButton.className = "button";
-          freqButton.type = "submit";
-          freqButton.textContent = "Додати";
-          freqAdd.append(freqInput, freqButton);
-          freqAdd.addEventListener("submit", (event) => {
-            event.preventDefault();
-            addFrequency(entry.node.id, freqInput.value);
-          });
           freqList.append(freqAdd);
           continue;
         }
@@ -4272,111 +4427,54 @@
           const covered = freqCovered(node);
           const inTree = Boolean(nodeById(node.id));
           const canOpen = node.children.length || node.freqs.length;
-          const rowEl = document.createElement("div");
-          rowEl.className = "unit-tree-row"
-            + (canOpen ? " unit-tree-row--branch" : "")
-            + (node.depth ? " unit-tree-row--nested" : "")
-            + (covered ? " unit-tree-row--selected" : "")
-            + (inTree ? " unit-tree-row--edit" : "");
-          rowEl.style.setProperty("--unit-depth", String(node.depth));
-          const toggleBtn = document.createElement("button");
-          toggleBtn.type = "button";
-          toggleBtn.className = "unit-tree-toggle" + (entry.open ? " unit-tree-toggle--open" : "");
-          toggleBtn.textContent = "▸";
-          toggleBtn.setAttribute("aria-label", entry.open ? "Згорнути" : "Розгорнути");
-          toggleBtn.addEventListener("click", (event) => {
-            event.stopPropagation();
-            if (!canOpen) return;
-            if (freqExpanded.has(node.id)) freqExpanded.delete(node.id);
-            else freqExpanded.add(node.id);
-            render();
-          });
-          const select = document.createElement("button");
-          select.type = "button";
-          select.className = "unit-tree-select";
-          const mark = document.createElement("span");
-          mark.className = "pick-mark" + (!covered && freqPartial(node) ? " partial" : "");
-          const title = document.createElement("strong");
-          title.textContent = node.label;
-          const count = document.createElement("span");
-          count.className = "unit-tree-count";
-          count.textContent = String(freqsOf(node).length);
-          select.append(mark, title, count);
-          select.addEventListener("click", () => toggleFreqBranch(node));
-          if (canOpen) rowEl.append(toggleBtn);
-          else {
-            const spacer = document.createElement("span");
-            spacer.className = "unit-tree-spacer";
-            rowEl.append(spacer);
-          }
-          rowEl.append(select);
-          if (inTree) {
-            const addFreq = document.createElement("button");
-            addFreq.type = "button";
-            addFreq.className = "keyword-tool";
-            addFreq.textContent = "+";
-            addFreq.setAttribute("aria-label", "Додати частоту в " + node.label);
-            addFreq.addEventListener("click", (event) => {
-              event.stopPropagation();
+          const rowEl = treeRow({
+            branch: canOpen,
+            nested: node.depth,
+            selected: covered,
+            edit: inTree,
+            depth: node.depth,
+            partial: !covered && freqPartial(node),
+            label: node.label,
+            count: freqsOf(node).length,
+            open: entry.open,
+            onToggle: canOpen ? () => {
+              flip(freqExpanded, node.id);
+              render();
+            } : null,
+            onSelect: () => toggleFreqBranch(node),
+          }).row;
+          if (inTree || node.id.startsWith("freq:")) {
+            rowEl.append(toolButton("Додати частоту в " + node.label, false, () => {
               freqAddParent = freqAddParent === node.id ? "" : node.id;
               if (freqAddParent) freqExpanded.add(node.id);
               pendingFocus = freqAddParent ? "freq-row" : "";
               render();
-            });
-            rowEl.append(addFreq);
+            }));
           }
           freqList.append(rowEl);
           continue;
         }
         const lean = leanLabel(entry.row.lean);
-        const rowEl = document.createElement("div");
         const on = selected("freq", entry.row.freq);
-        rowEl.className = "unit-tree-row unit-tree-row--net unit-tree-row--nested"
-          + (on ? " unit-tree-row--selected" : "");
-        rowEl.style.setProperty("--unit-depth", String(entry.depth));
-        const spacer = document.createElement("span");
-        spacer.className = "unit-tree-spacer";
-        const select = document.createElement("button");
-        select.type = "button";
-        select.className = "unit-tree-select";
-        const mark = document.createElement("span");
-        mark.className = "pick-mark";
-        const title = document.createElement("strong");
-        title.textContent = entry.row.freq;
-        select.append(mark, title);
-        if (lean) {
-          const tag = document.createElement("span");
-          tag.className = "unit-tree-count";
-          tag.textContent = lean;
-          select.append(tag);
-        }
-        select.addEventListener("click", () => toggle("freq", entry.row.freq));
-        rowEl.classList.add("unit-tree-row--removable");
-        rowEl.append(spacer, select);
-        const remove = document.createElement("button");
-        remove.type = "button";
-        remove.className = "pick-remove";
-        remove.textContent = "×";
-        remove.setAttribute("aria-label", "Прибрати " + entry.row.freq);
-        remove.addEventListener("click", (event) => {
-          event.stopPropagation();
-          askConfirm("Прибрати частоту " + entry.row.freq + "?", "Прибрати", () => removeFrequency(entry.row));
-        });
-        rowEl.append(remove);
+        const rowEl = treeRow({
+          net: true,
+          nested: true,
+          selected: on,
+          removable: true,
+          depth: entry.depth,
+          label: entry.row.freq,
+          count: lean || undefined,
+          onSelect: () => toggle("freq", entry.row.freq),
+        }).row;
+        rowEl.append(removeButton(
+          "Прибрати " + entry.row.freq,
+          () => askConfirm("Прибрати частоту " + entry.row.freq + "?", "Прибрати", () => removeFrequency(entry.row)),
+        ));
         freqList.append(rowEl);
       }
       freqPick.append(freqList);
-      const freqValues = visibleFrequencies(query.freq).map((item) => item.freq);
-      const freqActions = document.createElement("div");
-      freqActions.className = "facet-actions";
-      freqActions.append(allButton("freq", freqValues));
-      filterRoot.append(facet(
-        "Частоти",
-        "",
-        freqPick,
-        freqActions,
-        "freq",
-      ));
+        },
+      });
 
       if (focus) {
         const next = filterRoot.querySelector('[data-search="' + focus + '"]');
@@ -4389,7 +4487,9 @@
           ? "[data-formation-add]"
           : pendingFocus === "formation-child"
             ? "[data-formation-child]"
-            : "[data-freq-row-add]";
+            : pendingFocus === "freq-add"
+              ? "[data-freq-add]"
+              : "[data-freq-row-add]";
         pendingFocus = "";
         const pending = filterRoot.querySelector(selector);
         if (pending) pending.focus();
@@ -4499,13 +4599,14 @@
       canvas.width = 640;
       canvas.height = 360;
       const ctx = canvas.getContext("2d");
-      ctx.fillStyle = "#3d5c34";
+      const mapTone = getComputedStyle(document.documentElement);
+      ctx.fillStyle = mapTone.getPropertyValue("--map-field").trim();
       ctx.fillRect(0, 0, 640, 360);
       for (let i = 0; i < 18; i += 1) {
-        ctx.fillStyle = i % 2 ? "#6b8f4e" : "#8a7344";
+        ctx.fillStyle = mapTone.getPropertyValue(i % 2 ? "--map-plot" : "--map-plot-alt").trim();
         ctx.fillRect((i * 47) % 640, (i * 29) % 280, 90, 50);
       }
-      ctx.strokeStyle = "#d6b588";
+      ctx.strokeStyle = mapTone.getPropertyValue("--beige").trim();
       ctx.lineWidth = 2;
       ctx.strokeRect(250, 140, 70, 46);
       return new Promise((resolve) => canvas.toBlob((blob) => {
@@ -4532,10 +4633,7 @@
       root.dataset.n = String(Math.max(visible.length, 1));
       root.replaceChildren();
       if (split && !visible.length) {
-        const empty = document.createElement("div");
-        empty.className = "empty";
-        empty.innerHTML = "<h3>Поділ порожній</h3><p>Перетягніть вкладки в рамку поділу. Максимум 6.</p>";
-        root.append(empty);
+        root.append(emptyState("Поділ порожній", "Перетягніть вкладки в рамку поділу. Максимум 6."));
         return;
       }
       const active = currentFlow();
@@ -4587,86 +4685,81 @@
       }
     }
 
+    function interceptCard(card, freshId) {
+      const article = document.createElement("article");
+      const entering = card.id === freshId;
+      article.className = "card cut" + (card.fresh ? " card--fresh" : "") + (entering ? " card-enter" : "");
+      article.dataset.card = String(card.id);
+      const head = document.createElement("header");
+      const title = document.createElement("strong");
+      const lines = String(card.body || "").split("\n");
+      const sourceLine = lines.find((line) => line.startsWith("Джерело:"));
+      const hierarchyLine = lines.find((line) => line.startsWith("Ієрархія:"));
+      const source = displaySource(sourceLine ? sourceLine.replace(/^Джерело:\s*/, "") : "Джерело");
+      const hierarchy = hierarchyLine ? hierarchyLine.replace(/^Ієрархія:\s*/, "") : "";
+      title.textContent = hierarchy ? source + " - " + hierarchy : source;
+      const copy = document.createElement("button");
+      copy.type = "button";
+      copy.className = "button";
+      copy.textContent = "Копіювати";
+      copy.addEventListener("click", () => copyCard(card, copy));
+      head.append(title, copy);
+      const body = document.createElement("div");
+      body.className = "card-body";
+      const visible = String(card.body || "")
+        .split("\n")
+        .filter((line) => {
+          const text = line.trim();
+          return !text.startsWith("Джерело:") && !text.startsWith("Ієрархія:") && !text.includes("ПОТІК 125 ОВМБр");
+        })
+        .join("\n")
+        .replace(/\n{3,}/g, "\n\n");
+      let htmlBody = visible.replaceAll("&", "&amp;").replaceAll("<", "&lt;");
+      if (card.freq) htmlBody = htmlBody.replace(card.freq, '<span class="freq">' + card.freq + "</span>");
+      htmlBody = htmlBody.replace(/\d{1,2}[A-Z]\s+[A-Z]{2}\s+\d{5}\s+\d{5}/g, (match) => {
+        const clean = match.replace(/\s+/g, " ");
+        return '<button type="button" class="mgrs" data-mgrs="' + clean + '">' + clean + "</button>";
+      });
+      body.innerHTML = htmlBody;
+      if (card.image) {
+        const shot = document.createElement("button");
+        shot.type = "button";
+        shot.className = "card-shot-btn";
+        const img = document.createElement("img");
+        img.className = "card-shot";
+        img.src = card.image;
+        img.alt = "Зображення перехоплення";
+        shot.append(img);
+        shot.addEventListener("click", () => openImage(card.image));
+        const main = document.createElement("div");
+        main.className = "card-main";
+        main.append(shot, body);
+        article.append(head, main);
+      } else {
+        article.append(head, body);
+      }
+      return article;
+    }
+
     function fillFeed(feedEl, flow) {
       const shown = cards.filter((card) => matchesSet(flow.filters, card));
       const previous = new Set(shownByFlow.get(flow.id) || []);
       shownByFlow.set(flow.id, shown.map((card) => card.id));
       const freshId = shown.find((card) => card.fresh && !previous.has(card.id))?.id;
       feedEl.replaceChildren();
+      if (feedHold) {
+        feedEl.append(feedSkeleton(3));
+        return;
+      }
       if (!positive(flow.filters)) {
-        const empty = document.createElement("div");
-        empty.className = "empty";
-        empty.innerHTML = '<div class="glyph cut">ꑭ</div><h3>Фільтр порожній</h3><p>Оберіть формування, частоту, ім’я, слово або джерело.</p>';
-        feedEl.append(empty);
+        feedEl.append(emptyState("Фільтр порожній", "Оберіть формування, частоту, ім’я, слово або джерело.", "ꑭ"));
         return;
       }
       if (!shown.length) {
-        const empty = document.createElement("div");
-        empty.className = "empty";
-        empty.innerHTML = "<h3>Немає збігів</h3><p>У макеті немає картки під цей фільтр.</p>";
-        feedEl.append(empty);
+        feedEl.append(emptyState("Немає збігів", "У макеті немає картки під цей фільтр."));
         return;
       }
-      shown.forEach((card, index) => {
-        const article = document.createElement("article");
-        const entering = card.id === freshId;
-        article.className = "card cut" + (card.fresh ? " card--fresh" : "") + (entering ? " card-enter" : "");
-        article.dataset.card = String(card.id);
-        const head = document.createElement("header");
-        const title = document.createElement("strong");
-        const lines = String(card.body || "").split("\n");
-        const sourceLine = lines.find((line) => line.startsWith("Джерело:"));
-        const hierarchyLine = lines.find((line) => line.startsWith("Ієрархія:"));
-        const source = displaySource(sourceLine ? sourceLine.replace(/^Джерело:\s*/, "") : "Джерело");
-        const hierarchy = hierarchyLine ? hierarchyLine.replace(/^Ієрархія:\s*/, "") : "";
-        title.textContent = hierarchy ? source + " - " + hierarchy : source;
-        const copy = document.createElement("button");
-        copy.type = "button";
-        copy.className = "button";
-        copy.textContent = "Копіювати";
-        copy.addEventListener("click", () => copyCard(card, copy));
-        head.append(title, copy);
-        let shot = null;
-        if (card.image) {
-          shot = document.createElement("button");
-          shot.type = "button";
-          shot.className = "card-shot-btn";
-          const img = document.createElement("img");
-          img.className = "card-shot";
-          img.src = card.image;
-          img.alt = "Зображення перехоплення";
-          shot.append(img);
-          shot.addEventListener("click", () => openImage(card.image));
-        }
-        const body = document.createElement("div");
-        body.className = "card-body";
-        const visible = card.body
-          .split("\n")
-          .filter((line) => {
-            const text = line.trim();
-            return !text.startsWith("Джерело:") && !text.startsWith("Ієрархія:") && !text.includes("ПОТІК 125 ОВМБр");
-          })
-          .join("\n")
-          .replace(/\n{3,}/g, "\n\n");
-        let htmlBody = visible
-          .replaceAll("&", "&amp;")
-          .replaceAll("<", "&lt;");
-        if (card.freq) htmlBody = htmlBody.replace(card.freq, '<span class="freq">' + card.freq + "</span>");
-        htmlBody = htmlBody.replace(/\d{1,2}[A-Z]\s+[A-Z]{2}\s+\d{5}\s+\d{5}/g, (match) => {
-          const clean = match.replace(/\s+/g, " ");
-          return '<button type="button" class="mgrs" data-mgrs="' + clean + '">' + clean + "</button>";
-        });
-        body.innerHTML = htmlBody;
-        if (card.image) {
-          const main = document.createElement("div");
-          main.className = "card-main";
-          main.append(shot, body);
-          article.append(head, main);
-        } else {
-          article.append(head, body);
-        }
-        feedEl.append(article);
-      });
+      shown.forEach((card) => feedEl.append(interceptCard(card, freshId)));
     }
 
     function beginRename(id) {
@@ -5082,7 +5175,7 @@
         watch.style.height = "auto";
         watch.style.zIndex = "40";
         watch.style.gridTemplateColumns = watchThreadsCollapsed ? "48px minmax(0, 1fr)" : "240px minmax(0, 1fr)";
-        watch.style.background = "#000";
+        watch.style.background = "var(--bg)";
       } else {
         watch.classList.remove("is-open");
         watch.style.display = "none";
@@ -5094,6 +5187,11 @@
     }
 
     let watchRun = 0;
+    let watchAbort = null;
+    let watchPhase = "";
+    let feedHold = false;
+    const DOZOR_URL = (location.protocol === "file:" ? "http://127.0.0.1:8767" : "") + "/api/dozor";
+    if (location.protocol === "file:") location.replace("http://127.0.0.1:8767/");
 
     function setWatchStep(name) {
       const list = document.getElementById("watch-steps");
@@ -5117,6 +5215,56 @@
         if (word.endsWith(suffix) && word.length - suffix.length >= 3) add(word.slice(0, -suffix.length));
       }
       return stems;
+    }
+
+    const MINI_STOP = new Set("знайди знайти останнє останній останню перехоплення перехопленнях інфу інфу мені гайди дай що як де хто про по та і в на за з до від або мене мої".split(" "));
+    const DRILL_PROMPTS = [
+      { expect: "є", text: "Що по Іванівці?" },
+      { expect: "є", text: "Що казав Амур Ножику?" },
+      { expect: "є", text: "Останнє по 153.1750" },
+      { expect: "є", text: "Що по 59 танковому полку?" },
+      { expect: "немає", text: "Знайди останнє перехоплення по ЛИПЕЦК" },
+    ];
+
+    function miniRecord(card, index) {
+      const body = String(card.body || "");
+      const lines = body.split("\n");
+      const time = (lines.find((line) => /\d{2}\.\d{2}\s+\d{2}:\d{2}/.test(line)) || "").replace(/^\d{3}\.\d{3,4}\s*·\s*/, "").trim();
+      const conclusion = (lines.find((line) => /^Висновок:/.test(line.trim())) || "").replace(/^Висновок:\s*/, "");
+      const quote = lines.find((line) => /^[–—=«]/.test(line.trim())) || "";
+      const preview = (conclusion || quote || lines.slice(4).join(" ")).replace(/\s+/g, " ").trim().slice(0, 160);
+      return {
+        id: index + 1,
+        freq: card.freq || "",
+        source: card.source || "",
+        units: card.units || [],
+        time,
+        preview,
+      };
+    }
+
+    function miniQueryTokens(question) {
+      return fold(question).split(/[^\p{L}\p{N}.]+/u).filter((word) => word.length >= 3 && !MINI_STOP.has(word));
+    }
+
+    function searchNeedles(token) {
+      const needles = new Set(watchStems(token));
+      if (!needles.size) needles.add(token);
+      if (token.length >= 6) needles.add(token.slice(0, 5));
+      return [...needles].filter((item) => item.length >= 4);
+    }
+
+    function searchMini(question) {
+      const tokens = miniQueryTokens(question);
+      if (!tokens.length) return [];
+      return archiveCards().map((card, index) => {
+        const record = miniRecord(card, index);
+        const hay = fold([card.body, record.freq, record.source, ...(record.units || [])].join(" "));
+        const score = tokens.reduce((sum, token) => {
+          return sum + (searchNeedles(token).some((needle) => hay.includes(needle)) ? 1 : 0);
+        }, 0);
+        return { record, score };
+      }).filter((item) => item.score > 0).sort((a, b) => b.score - a.score).slice(0, 5).map((item) => item.record);
     }
 
     function watchHits(question) {
@@ -5354,6 +5502,136 @@
       }
     }
 
+    function revealLead(node, full) {
+      const steps = 18;
+      const chunk = Math.max(1, Math.ceil(full.length / steps));
+      let shown = 0;
+      const timer = window.setInterval(() => {
+        if (!node.isConnected) {
+          window.clearInterval(timer);
+          return;
+        }
+        shown = Math.min(full.length, shown + chunk);
+        node.textContent = full.slice(0, shown);
+        if (shown >= full.length) {
+          node.classList.remove("is-typing");
+          window.clearInterval(timer);
+        }
+      }, 28);
+    }
+
+    function mountActs(steps) {
+      if (!steps || !steps.length) return null;
+      const list = document.createElement("ul");
+      list.className = "watch-acts";
+      steps.forEach((step) => {
+        const item = document.createElement("li");
+        item.textContent = step;
+        list.append(item);
+      });
+      return list;
+    }
+
+    function mountReply(report, fresh) {
+      const reply = document.createElement("div");
+      reply.className = "watch-reply cut" + (fresh ? " is-fresh" : "");
+      const kicker = document.createElement("div");
+      kicker.className = "watch-reply-kicker";
+      kicker.textContent = "Дозорний";
+      reply.append(kicker);
+      const acts = mountActs(report.steps);
+      if (acts) reply.append(acts);
+      if (report.thought) {
+        const thought = document.createElement("details");
+        thought.className = "watch-thought";
+        thought.open = Boolean(fresh);
+        const summary = document.createElement("summary");
+        summary.textContent = "Хід думки";
+        const note = document.createElement("p");
+        note.textContent = report.thought;
+        thought.append(summary, note);
+        reply.append(thought);
+      }
+      const text = document.createElement("p");
+      text.className = "watch-lead";
+      const lead = /\*\*|lead:|rows:|quotes:/i.test(report.lead || "") ? "Не зміг сказати прямо." : (report.lead || "");
+      const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (fresh && lead && !reduce) {
+        text.classList.add("is-typing");
+        revealLead(text, lead);
+      } else {
+        text.textContent = lead;
+      }
+      reply.append(text);
+      return reply;
+    }
+
+    function spinner(label) {
+      const node = document.createElement("span");
+      node.className = "spinner";
+      node.setAttribute("role", "status");
+      node.setAttribute("aria-label", label || "Завантаження");
+      const glyph = document.createElement("span");
+      glyph.className = "spinner__glyph";
+      glyph.setAttribute("aria-hidden", "true");
+      glyph.textContent = "ꑭ";
+      node.append(glyph);
+      return node;
+    }
+
+    function cardSkeleton() {
+      const article = document.createElement("article");
+      article.className = "card cut card-skeleton";
+      article.setAttribute("aria-hidden", "true");
+      const title = document.createElement("div");
+      title.className = "skeleton skeleton-title";
+      const body = document.createElement("div");
+      body.className = "card-skeleton-body";
+      for (const width of ["92%", "74%", "46%"]) {
+        const line = document.createElement("div");
+        line.className = "skeleton skeleton-line";
+        line.style.width = width;
+        body.append(line);
+      }
+      article.append(title, body);
+      return article;
+    }
+
+    function feedSkeleton(count) {
+      const feed = document.createElement("div");
+      feed.className = "feed";
+      feed.setAttribute("aria-busy", "true");
+      feed.setAttribute("aria-label", "Завантажуємо перехоплення");
+      for (let index = 0; index < count; index += 1) feed.append(cardSkeleton());
+      return feed;
+    }
+
+    function feedLoading(label, detail) {
+      const node = document.createElement("div");
+      node.className = "feed-loading";
+      node.setAttribute("role", "status");
+      node.append(spinner(label));
+      const text = document.createElement("span");
+      text.textContent = detail || label;
+      node.append(text);
+      return node;
+    }
+
+    function pendingReply() {
+      const reply = document.createElement("div");
+      reply.className = "watch-reply cut is-pending";
+      const row = document.createElement("div");
+      row.className = "feed-loading is-inline";
+      const phase = watchPhase || "Думає";
+      row.append(spinner(phase));
+      const text = document.createElement("p");
+      text.className = "watch-phase";
+      text.textContent = phase;
+      row.append(text);
+      reply.append(row);
+      return reply;
+    }
+
     function paintWatch() {
       paintThreads();
       paintPending();
@@ -5362,12 +5640,25 @@
       const stop = document.getElementById("watch-stop");
       const thread = currentThread();
       const messages = thread ? thread.messages : [];
+      const runningHere = Boolean(watchRun && thread && watchRunThread === thread.id);
       if (!log) return;
       log.replaceChildren();
       if (!messages.length) {
-        const empty = document.createElement("div");
-        empty.className = "empty";
-        empty.innerHTML = '<div class="glyph cut">ꑭ</div><h3>Дозорний</h3><p>Напишіть завдання.</p>';
+        const empty = emptyState(
+          "Дозорний",
+          "Агент. Сам шукає в міні-базі, читає запис і тоді відповідає.",
+          '<svg viewBox="0 0 24 24" width="22" height="22"><path d="M2.2 12S5.8 6.2 12 6.2 21.8 12 21.8 12 18.2 17.8 12 17.8 2.2 12 2.2 12z" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>',
+        );
+        const drills = document.createElement("div");
+        drills.className = "watch-prompts";
+        for (const prompt of DRILL_PROMPTS) {
+          const button = document.createElement("button");
+          button.type = "button";
+          button.textContent = (prompt.expect === "немає" ? "немає · " : "є · ") + prompt.text;
+          button.addEventListener("click", () => askWatch(prompt.text, []));
+          drills.append(button);
+        }
+        empty.append(drills);
         log.append(empty);
       }
       for (let index = 0; index < messages.length; index += 1) {
@@ -5387,51 +5678,24 @@
         turn.append(ask);
         const next = messages[index + 1];
         if (next && next.role === "agent") {
-          const reply = document.createElement("div");
-          reply.className = "watch-reply cut";
-          const kicker = document.createElement("div");
-          kicker.className = "watch-reply-kicker";
-          kicker.textContent = "Дозорний";
-          const text = document.createElement("p");
-          text.textContent = next.report ? next.report.lead : next.text;
-          reply.append(kicker, text);
-          if (next.report && next.report.rows.length) {
-            const data = document.createElement("dl");
-            data.className = "watch-data";
-            for (const row of next.report.rows) {
-              const line = document.createElement("div");
-              const label = document.createElement("dt");
-              label.textContent = row.label;
-              const value = document.createElement("dd");
-              value.textContent = row.value;
-              line.append(label, value);
-              data.append(line);
-            }
-            reply.append(data);
+          if (next.pending) {
+            const acts = mountActs(next.steps || []);
+            if (acts) turn.append(acts);
+            turn.append(pendingReply());
+          } else {
+            const fresh = Boolean(next.fresh);
+            if (fresh) next.fresh = false;
+            turn.append(mountReply(next.report || { lead: next.text || "", thought: next.thought || "", rows: [], quotes: [], steps: next.steps || [] }, fresh));
           }
-          if (next.report && next.report.quotes.length) {
-            const evidence = document.createElement("div");
-            evidence.className = "watch-evidence";
-            const caption = document.createElement("span");
-            caption.textContent = "Зі сховища";
-            evidence.append(caption);
-            for (const quote of next.report.quotes) {
-              const line = document.createElement("p");
-              line.className = "watch-quote";
-              line.textContent = quote;
-              evidence.append(line);
-            }
-            reply.append(evidence);
-          }
-          turn.append(reply);
           index += 1;
+        } else if (runningHere && index === messages.length - 1) {
+          turn.append(pendingReply());
         }
         log.append(turn);
       }
-      const runningHere = watchRun && watchRunThread === (thread && thread.id);
       if (status) status.hidden = !runningHere && !watchListening;
       if (stop) stop.hidden = !runningHere;
-      if (status && runningHere) status.textContent = "Читає базу";
+      if (status && runningHere) status.textContent = watchPhase || "Думає";
       if (status && watchListening && !runningHere) status.textContent = "Слухаю";
       log.scrollTop = log.scrollHeight;
     }
@@ -5456,6 +5720,254 @@
       return { lead: "По " + hits.length + " картках зі сховища.", rows, quotes };
     }
 
+    function clip(text, max) {
+      const clean = String(text || "").replace(/\*\*/g, "").replace(/`/g, "").replace(/\s+/g, " ").trim();
+      if (clean.length <= max) return clean;
+      const cut = clean.slice(0, max);
+      const stop = Math.max(cut.lastIndexOf(" "), cut.lastIndexOf("."), cut.lastIndexOf(","));
+      return (stop > 40 ? cut.slice(0, stop) : cut).trim() + "…";
+    }
+
+    function parseLabeled(raw) {
+      const text = String(raw || "").replace(/\*\*/g, "");
+      const leadMatch = text.match(/lead:\s*([\s\S]*?)(?=rows:|quotes:|$)/i);
+      const quotesMatch = text.match(/quotes:\s*([\s\S]*)$/i);
+      const rows = [];
+      const rowRe = /label:\s*([\s\S]*?)value:\s*([\s\S]*?)(?=label:|quotes:|$)/gi;
+      let match;
+      while ((match = rowRe.exec(text)) && rows.length < 4) {
+        const label = clip(match[1].replace(/^[\s–—-]+|[\s–—-]+$/g, ""), 32);
+        const value = clip(match[2].split(/quotes:/i)[0].replace(/^[\s–—-]+/, ""), 160);
+        if (label && value) rows.push({ label, value });
+      }
+      const quotes = quotesMatch
+        ? quotesMatch[1].split(/\s+-\s+=\s+|\s+[–—]\s+/).map((part) => clip(part.replace(/^[\s–—=«»-]+/, ""), 140)).filter(Boolean).slice(0, 2)
+        : [];
+      const lead = clip((leadMatch ? leadMatch[1] : "").replace(/^[\s–—-]+/, ""), 220);
+      if (!lead && !rows.length && !quotes.length) return null;
+      return { lead: lead || "Знайдено в міні-базі.", rows, quotes };
+    }
+
+    function parseDozor(content) {
+      const raw = String(content || "").trim();
+      let data = null;
+      try { data = JSON.parse(raw); }
+      catch (error) {
+        const match = raw.match(/\{[\s\S]*\}/);
+        if (match) {
+          try { data = JSON.parse(match[0]); } catch (again) { data = null; }
+        }
+      }
+      if (!data || typeof data !== "object") return parseLabeled(raw) || { lead: clip(raw, 220) || "Порожня відповідь.", rows: [], quotes: [] };
+      const rows = Array.isArray(data.rows)
+        ? data.rows.filter((row) => row && row.label && row.value).slice(0, 4)
+        : [];
+      const quotes = Array.isArray(data.quotes) ? data.quotes.map((item) => clip(item, 140)).filter(Boolean).slice(0, 2) : [];
+      return { lead: clip(data.lead || data.summary_uk || "", 220) || "Знайдено в міні-базі.", rows, quotes };
+    }
+
+    function cardBrief(card) {
+      const line = watchCardLine(card);
+      return {
+        freq: line.freq,
+        source: line.source,
+        chain: line.chain,
+        excerpt: String(card.body || "").replace(/\s+/g, " ").slice(0, 420),
+      };
+    }
+
+    function contourPack() {
+      const flow = currentFlow();
+      const set = flow.filters;
+      const open = positive(set);
+      const matched = open ? cards.filter((card) => matchesSet(set, card)) : [];
+      return {
+        name: flow.name,
+        open,
+        filters: {
+          formation: set.formation.slice(0, 12),
+          freq: set.freq.slice(0, 12),
+          names: set.names.slice(0, 12),
+          sources: set.sources.slice(0, 12),
+          keywords: set.keywords.slice(0, 12),
+        },
+        count: matched.length,
+        cards: matched.slice(0, 6).map(cardBrief),
+      };
+    }
+
+    function watchContext(question) {
+      return watchHits(question).slice(0, 6).map(cardBrief);
+    }
+
+    function chatText(content) {
+      const text = String(content || "").replace(/```[\s\S]*?```/g, "").replace(/\*\*/g, "").trim();
+      if (!text || /^(lead|rows|quotes)\s*:/i.test(text)) return "";
+      return clip(text, 900);
+    }
+
+    const DOZOR_TOOLS = [
+      {
+        type: "function",
+        function: {
+          name: "search_archive",
+          description: "Пошук у міні-базі перехоплень. Викликай перед відповіддю про підрозділ, позивний, частоту або місце.",
+          parameters: {
+            type: "object",
+            properties: { query: { type: "string", description: "Підрозділ, позивний, частота або місце." } },
+            required: ["query"],
+          },
+        },
+      },
+      {
+        type: "function",
+        function: {
+          name: "read_record",
+          description: "Прочитати один запис за id з search_archive.",
+          parameters: {
+            type: "object",
+            properties: { id: { type: "integer" } },
+            required: ["id"],
+          },
+        },
+      },
+    ];
+
+    function toolArgs(call) {
+      const raw = call && call.function ? call.function.arguments : null;
+      if (!raw) return {};
+      if (typeof raw === "object") return raw;
+      try { return JSON.parse(raw); } catch (error) { return {}; }
+    }
+
+    function runDozorTool(name, args) {
+      if (name === "search_archive") {
+        const hits = searchMini(String(args.query || "")).slice(0, 5);
+        return {
+          count: hits.length,
+          hits: hits.map((hit) => ({
+            id: hit.id,
+            freq: hit.freq,
+            time: hit.time,
+            source: hit.source,
+            units: (hit.units || []).slice(0, 4),
+            preview: hit.preview,
+          })),
+        };
+      }
+      if (name === "read_record") {
+        const id = Number(args.id);
+        const card = archiveCards()[id - 1];
+        if (!card) return { error: "немає запису " + id };
+        const record = miniRecord(card, id - 1);
+        return {
+          id,
+          freq: record.freq,
+          time: record.time,
+          source: record.source,
+          units: record.units || [],
+          preview: record.preview,
+          body: String(card.body || "").replace(/\s+/g, " ").trim().slice(0, 900),
+        };
+      }
+      return { error: "немає інструмента " + name };
+    }
+
+    function postDozor(messages, tools, signal) {
+      const body = {
+        model: "grok-4.7",
+        temperature: 0.3,
+        max_tokens: 500,
+        reasoning_effort: "low",
+        messages,
+      };
+      if (tools) {
+        body.tools = tools;
+        body.tool_choice = "auto";
+      }
+      return fetch(DOZOR_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        signal,
+        body: JSON.stringify(body),
+      }).then((response) => {
+        if (!response.ok) throw new Error("міст " + response.status);
+        return response.json();
+      });
+    }
+
+    async function runDozorAgent(thread, run, controller) {
+      const prior = thread.messages.slice(0, -1).slice(-8).map((item) => ({
+        role: item.role === "agent" ? "assistant" : "user",
+        content: item.text || "",
+      })).filter((item) => item.content);
+      const last = thread.messages[thread.messages.length - 1];
+      const messages = [
+        { role: "system", content: "Ти Дозорний, агент чергового. Сам вирішуєш, що робити. Про перехоплення не відповідай з пам'яті: спочатку search_archive, якщо треба деталь — read_record, тоді кілька речень українською. Якщо пошук порожній, скажи що в міні-базі немає. Не вигадуй частоти, час і цитати. У відповіді людині без JSON і без зірочок." },
+        ...prior,
+        { role: "user", content: last.text || "" },
+      ];
+      const agent = {
+        role: "agent",
+        pending: true,
+        fresh: true,
+        steps: [],
+        text: "",
+        report: { lead: "", thought: "", rows: [], quotes: [], steps: [] },
+      };
+      thread.messages.push(agent);
+      try {
+        for (let step = 0; step < 4; step += 1) {
+          if (watchRun !== run) return;
+          watchPhase = agent.steps.length ? agent.steps[agent.steps.length - 1] : "Думає";
+          paintWatch();
+          const payload = await postDozor(messages, step < 3 ? DOZOR_TOOLS : null, controller.signal);
+          if (watchRun !== run) return;
+          const message = payload && payload.choices && payload.choices[0] && payload.choices[0].message
+            ? payload.choices[0].message
+            : {};
+          if (message.reasoning_content) agent.report.thought = clip(String(message.reasoning_content).replace(/\*\*/g, ""), 700);
+          const calls = Array.isArray(message.tool_calls) ? message.tool_calls : [];
+          if (!calls.length || step === 3) {
+            agent.text = chatText(message.content) || "Не зміг сказати прямо.";
+            break;
+          }
+          messages.push({ role: "assistant", content: message.content || "", tool_calls: calls });
+          for (const call of calls) {
+            const args = toolArgs(call);
+            const name = call.function && call.function.name;
+            const label = name === "read_record"
+              ? "Читає запис " + (args.id || "")
+              : "Шукає: " + (args.query || "сховище");
+            agent.steps.push(label);
+            watchPhase = label;
+            paintWatch();
+            const result = runDozorTool(name, args);
+            messages.push({
+              role: "tool",
+              tool_call_id: call.id || ("call-" + agent.steps.length),
+              content: JSON.stringify(result),
+            });
+          }
+        }
+      } catch (error) {
+        if (watchRun !== run || error.name === "AbortError") return;
+        agent.text = "Grok не відповів.";
+      }
+      if (watchRun !== run) return;
+      agent.pending = false;
+      agent.fresh = true;
+      agent.text = agent.text || "Зупинився, не відповів.";
+      agent.report.lead = agent.text;
+      agent.report.steps = agent.steps.slice();
+      agent.report.rows = [];
+      agent.report.quotes = [];
+      watchRun = 0;
+      if (watchAbort === controller) watchAbort = null;
+      watchPhase = "";
+      paintWatch();
+    }
+
     function askWatch(question, files) {
       const text = String(question || "").trim();
       const attached = (files || []).slice();
@@ -5465,22 +5977,12 @@
       const run = ++watchRun;
       watchRunThread = thread.id;
       thread.messages.push({ role: "user", text, files: attached });
+      watchPhase = "Думає";
       setWatchStep("read");
       paintWatch();
-      window.setTimeout(() => {
-        if (watchRun !== run) return;
-        const target = watchThreads.find((item) => item.id === watchRunThread);
-        if (!target) {
-          watchRun = 0;
-          return;
-        }
-        const hits = text ? watchHits(text).map(watchCardLine) : [];
-        const report = text ? watchAnalysis(hits) : { lead: "Файл бачу. Напишіть, що з ним зробити.", rows: [], quotes: [] };
-        target.messages.push({ role: "agent", report });
-        watchRun = 0;
-        setWatchStep(hits.length ? "write" : "");
-        paintWatch();
-      }, 420);
+      const controller = new AbortController();
+      watchAbort = controller;
+      runDozorAgent(thread, run, controller);
     }
 
     const sidebarResize = document.getElementById("sidebar-resize");
@@ -5581,6 +6083,8 @@
 
     document.getElementById("watch-stop").addEventListener("click", () => {
       watchRun = 0;
+      if (watchAbort) watchAbort.abort();
+      watchPhase = "";
       setWatchStep("");
       paintWatch();
     });
@@ -5601,6 +6105,12 @@
       paintPending();
     });
     document.getElementById("watch-mic").addEventListener("click", toggleDictation);
+    document.getElementById("watch-input").addEventListener("keydown", (event) => {
+      if (event.key === "Enter" && !event.shiftKey) {
+        event.preventDefault();
+        event.currentTarget.form.requestSubmit();
+      }
+    });
     document.getElementById("watch-form").addEventListener("submit", (event) => {
       event.preventDefault();
       stopDictation();
@@ -5620,9 +6130,9 @@
 
     document.getElementById("gate-form").addEventListener("submit", (event) => {
       event.preventDefault();
-      const callsign = document.getElementById("callsign-input").value.trim() || "Дрозд";
+      const callsign = document.getElementById("callsign-input").value.trim();
       const badge = document.getElementById("callsign");
-      badge.hidden = false;
+      badge.hidden = !callsign;
       badge.textContent = callsign;
       const value = document.getElementById("password").value.trim();
       const error = document.getElementById("gate-error");
@@ -5633,7 +6143,9 @@
       error.classList.remove("show");
       gate.classList.add("off");
       desk.classList.add("on");
+      feedHold = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       render();
+      if (feedHold) window.setTimeout(() => { feedHold = false; render(); }, 480);
       startTicker();
     });
     document.getElementById("confirm-form").addEventListener("submit", (event) => {
